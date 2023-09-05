@@ -1,0 +1,30 @@
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem 2rem 6rem;
+
+  .header-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+
+    .news-link-container {
+      padding: 0 2rem;
+    }
+  }
+
+  .social-media-links {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    .social-media-link-container {
+      margin: 0 .5rem;
+    }
+  }
+
+}

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "TildaSans-VF";
+  src: url(../src/assets/fonts/TildaSans-VF.ttf);
+}
+body {
+  font-family: 'TildaSans-VF';
+  background: linear-gradient(to bottom, #000000 1%, #1e204c 50%, #646AFF 80%, #000000 99%,);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
