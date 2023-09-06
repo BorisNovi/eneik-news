@@ -6,9 +6,9 @@ import { Observable, firstValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class NewsService {
-  private baseUrl = 'http://192.168.0.112:8000'; // https://eneikapi.onrender.com
+  private baseUrl = 'http://localhost:8000'; // https://eneikapi.onrender.com
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   async getToken(): Promise<string | null> {
     const url = `${this.baseUrl}/auth/jwt/create`;
