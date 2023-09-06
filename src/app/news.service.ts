@@ -30,8 +30,8 @@ export class NewsService {
     }
   }
 
-  async getNews(): Promise<Observable<any[]>> {
-    const url = `${this.baseUrl}/api/v1/news/`;
+  async getNews(limit:number = 20, offset:number = 0): Promise<Observable<any[]>> {
+    const url = `${this.baseUrl}/api/v1/news/?limit=${limit}&offset=${offset}`;
 
     const token = await this.getToken();
     console.log('Token: ', token);

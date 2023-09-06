@@ -3,27 +3,27 @@
     <h1 class="main-header">IT ЕЖЕНЕДЕЛЬНИК</h1>
 
     <div class="title-new-container">
-      <a href="#" class="title-new-link">
-        <h2>Самая интересная или важная для нас тема будет встречать вас тут...</h2>
-        <p>А тут мы напишем немного подробностей: упоминание людей, мест, более подробное раскрытие темы заголовка, да в целом что угодно..</p>
+      <a href="news/:id{{ newsList[0]?.id }}" class="title-new-link">
+        <h2>{{ newsList[0].header }}</h2>
+        <p>{{ newsList[0].main_text }}</p>
       </a>
     </div>
   </div>
   <div class="additional-container">
     <div class="additional-news">
       <div class="new-1">
-        <a href="#" class="new-1-link">
-          <h4>Еще у нас есть несколько тем, которые мы подготовили. Их тоже нужно обсудить, ведь они также показались нам..</h4>
+        <a href="news/:id{{ newsList[1].id }}" class="new-1-link">
+          <h4>{{ newsList[1].header }}</h4>
         </a>
       </div>
       <div class="new-2">
-        <a href="#" class="new-2-link">
-          <h4>Крайне интересными! Поэтому скорее читать! Кстати, есть одна мысль..</h4>
+        <a href="news/:id{{ newsList[2].id }}" class="new-2-link">
+          <h4>{{ newsList[2].header }}</h4>
         </a>
       </div>
       <div class="new-3">
-        <a href="#" class="new-3-link">
-          <h4>Надо ее обсудить в отдельной статье. Мы тут пригласили человека, который шарит в этой теме, давай послушаем!..</h4>
+        <a href="news/:id{{ newsList[3].id }}" class="new-3-link">
+          <h4>{{ newsList[3].header }}</h4>
         </a>
       </div>
     </div>
