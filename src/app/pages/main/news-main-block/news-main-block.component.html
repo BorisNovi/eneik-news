@@ -4,26 +4,26 @@
 
     <div class="title-new-container">
       <a href="news/:id{{ newsList[0]?.id }}" class="title-new-link">
-        <h2>{{ newsList[0].header }}</h2>
-        <p>{{ newsList[0].main_text }}</p>
+        <h2>{{ newsList[0]?.header }}</h2>
+        <p>{{ newsList[0]?.main_text }}</p>
       </a>
     </div>
   </div>
   <div class="additional-container">
     <div class="additional-news">
       <div class="new-1">
-        <a href="news/:id{{ newsList[1].id }}" class="new-1-link">
-          <h4>{{ newsList[1].header }}</h4>
+        <a href="news/:id{{ newsList[1]?.id }}" class="new-1-link">
+          <h4>{{ newsList[1]?.header }}</h4>
         </a>
       </div>
       <div class="new-2">
-        <a href="news/:id{{ newsList[2].id }}" class="new-2-link">
-          <h4>{{ newsList[2].header }}</h4>
+        <a href="news/:id{{ newsList[2]?.id }}" class="new-2-link">
+          <h4>{{ newsList[2]?.header }}</h4>
         </a>
       </div>
       <div class="new-3">
-        <a href="news/:id{{ newsList[3].id }}" class="new-3-link">
-          <h4>{{ newsList[3].header }}</h4>
+        <a href="news/:id{{ newsList[3]?.id }}" class="new-3-link">
+          <h4>{{ newsList[3]?.header }}</h4>
         </a>
       </div>
     </div>

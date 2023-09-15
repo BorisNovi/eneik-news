@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
+import { singleNew } from './interfaces/news-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class NewsService {
     return this.http.get<any[]>(url, { headers });
   }
 
-  async getNewsById(id: number): Promise<Observable<any>> {
+  async getNewsById(id: number): Promise<Observable<singleNew>> {
     const url = `${this.baseUrl}/api/v1/news/${id}`;
     const token = await this.getToken();
 
@@ -51,6 +52,6 @@ export class NewsService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     });
-    return this.http.get<any>(url, { headers });
+    return this.http.get<singleNew>(url, { headers });
   }
 }

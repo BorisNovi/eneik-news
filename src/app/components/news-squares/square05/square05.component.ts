@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { singleNew } from 'src/app/interfaces/news-interface';
 
 @Component({
-  selector: 'app-square1',
-  templateUrl: './square1.component.html',
-  styleUrls: ['./square1.component.scss']
+  selector: 'app-square05',
+  templateUrl: './square05.component.html',
+  styleUrls: ['./square05.component.scss']
 })
-export class Square1Component implements OnInit {
+export class Square05Component implements OnInit {
   @Input() data: singleNew; // Объявление входного свойства для передачи данных
 
   constructor() {
@@ -21,6 +21,6 @@ export class Square1Component implements OnInit {
   // Пример метода для обработки данных
   async processData() {
 
-    console.log('Received data in square 1: ', this.data);
+    console.log('Received data in square 05: ', this.data);
   }
 }
