@@ -1,3 +1,34 @@
-<p>news-detail works!</p>
+
 <a href="/main">To main</a>
-<p>{{ news }}</p>
+
+<div class="container">
+  <img [src]="news?.images_0[0]" alt="Heading bg" class="heading-image">
+  <div class="new-container">
+    <div class="new-heading">
+      <h2>{{ news?.header }}</h2>
+    </div>
+    <div class="new-date">
+      <h4>"Названия раздела нет в API" / {{ news?.date }}</h4>
+    </div>
+    <div class="new-content">
+      <div class="new-subheader">
+        <h2>{{ news?.sub_text_0 }}</h2>
+      </div>
+      <div class="new-main-text-1">
+        <p>{{ news?.main_text }}</p>
+      </div>
+      <div class="new-image-0">
+        <img [src]="news?.images_0[0]" alt="Image 0">
+      </div>
+      <div class="new-subtext">
+        <p>{{ news?.sub_text_1 }}</p>
+      </div>
+      <div class="new-image-1">
+        <img [src]="news?.images_1[0]" alt="Image 1">
+      </div>
+      <div class="new-author">
+        <p>"Автора нет в API"</p>
+      </div>
+    </div>
+  </div>
+</div>

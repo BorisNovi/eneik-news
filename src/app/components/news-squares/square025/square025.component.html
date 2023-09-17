@@ -3,9 +3,6 @@
   <!-- Заменить этим строку сверху, когда изображения будут на сервере -->
   <!-- <div class="container" [style.background-image]="'url(' + (data?.images_0 || '') + ')'" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(255, 255, 255, 0) 100%);"> -->
   <div class="square-header-container">
-    <h2>{{ data?.header }}</h2>
-  </div>
-  <div class="square-subheader-container">
-    <h2>{{ data?.main_text }}</h2>
+    <h2>{{ data?.header | slice:0:150 }}{{ data?.header!.length > 150 ? '...' : '' }}</h2>
   </div>
 </div>

@@ -19,14 +19,18 @@
   }
 
   .additional-container {
+    margin: 4rem 0;
     max-width: 1240px;
-    gap: 2rem;
+    gap: 1rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .read-more-pseudobutton {
-    align-self: center;
+    display: flex;
+    align-self: end;
+    margin: 0 5rem;
 
     a {
       width: 114px;

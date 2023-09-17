@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .heading-image {}
+
+  .new-container {
+    .new-heading {
+      h2 {}
+    }
+
+    .new-date {
+      h4 {}
+    }
+
+    .new-content {
+      .new-subheader {
+        h2 {}
+      }
+
+      .new-main-text-1 {
+        p {}
+      }
+
+      .new-image-0 {
+        img {}
+      }
+
+      .new-subtext {
+        p {}
+      }
+
+      .new-image-1 {
+        img {}
+      }
+
+      .new-author {
+        p {}
+      }
+    }
+  }
+}
