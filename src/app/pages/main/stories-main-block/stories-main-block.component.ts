@@ -7,22 +7,22 @@ import { singleNew } from '../../../interfaces/news-interface';
   styleUrls: ['./stories-main-block.component.scss']
 })
 export class StoriesMainBlockComponent implements OnInit {
-  newsList: singleNew[] = []; // Создаем массив для хранения новостей
+  storiesList: singleNew[] = []; // Создаем массив для хранения новостей
 
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
-    this.loadNews();
+    this.loadStories();
   }
 
-  async loadNews() {
+  async loadStories() {
     try {
-      const newsData = await this.newsService.getStories(4, 0)
+      const newsData = await this.newsService.getStories(6, 0)
       newsData.subscribe(
         (newsData: singleNew[]) => {
           // TODO: добавить отдельный интерфейс для историй
-          this.newsList = newsData;
-          console.log('Data in stories-main-block: ', this.newsList);
+          this.storiesList = newsData;
+          console.log('Data in stories-main-block: ', this.storiesList);
         },
         (error) => {
           console.error('Error loading news:', error);
