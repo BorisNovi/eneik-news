@@ -17,7 +17,7 @@ export class StoriesMainBlockComponent implements OnInit {
 
   async loadNews() {
     try {
-      const newsData = await this.newsService.getNews(7, 4)
+      const newsData = await this.newsService.getStories(4, 0)
       newsData.subscribe(
         (newsData: singleNew[]) => {
           this.newsList = newsData;

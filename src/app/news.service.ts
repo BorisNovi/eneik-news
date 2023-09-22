@@ -31,8 +31,8 @@ export class NewsService {
     }
   }
 
-  async getNews(limit:number = 20, offset:number = 0): Promise<Observable<any[]>> {
-    const url = `${this.baseUrl}/api/v1/news/?limit=${limit}&offset=${offset}`;
+  async getNews(limit: number = 20, offset:number = 0): Promise<Observable<any[]>> {
+    const url = `${this.baseUrl}/api/v1/news/?count=${limit}&start=${offset}`;
 
     const token = await this.getToken();
     console.log('Token: ', token);
@@ -46,6 +46,31 @@ export class NewsService {
 
   async getNewsById(id: number): Promise<Observable<singleNew>> {
     const url = `${this.baseUrl}/api/v1/news/${id}`;
+    const token = await this.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.get<singleNew>(url, { headers });
+  }
+
+
+  async getStories(limit: number = 20, offset:number = 0): Promise<Observable<any[]>> {
+    const url = `${this.baseUrl}/api/v1/stories/?count=${limit}&start=${offset}`;
+
+    const token = await this.getToken();
+    console.log('Token: ', token);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.get<any[]>(url, { headers });
+  }
+
+  async gettoriesById(id: number): Promise<Observable<singleNew>> {
+    const url = `${this.baseUrl}/api/v1/stories/${id}`;
     const token = await this.getToken();
 
     const headers = new HttpHeaders({
