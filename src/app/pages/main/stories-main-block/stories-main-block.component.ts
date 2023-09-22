@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../../news.service';
+import { NewsService } from '../../../services/news.service';
 import { singleNew } from '../../../interfaces/news-interface';
 @Component({
   selector: 'app-stories-main-block',
@@ -20,6 +20,7 @@ export class StoriesMainBlockComponent implements OnInit {
       const newsData = await this.newsService.getStories(4, 0)
       newsData.subscribe(
         (newsData: singleNew[]) => {
+          // TODO: добавить отдельный интерфейс для историй
           this.newsList = newsData;
           console.log('Data in stories-main-block: ', this.newsList);
         },

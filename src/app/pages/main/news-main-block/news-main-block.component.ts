@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../../news.service'; // Замените на путь к вашему NewsService
+import { NewsService } from '../../../services/news.service'; // Замените на путь к вашему NewsService
 import { singleNew } from '../../../interfaces/news-interface';
 
 @Component({

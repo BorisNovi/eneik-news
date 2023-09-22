@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
-import { singleNew } from './interfaces/news-interface';
+import { singleNew } from '../interfaces/news-interface';
 
+// TODO: разнести запросы по отдельным сервисам
 @Injectable({
   providedIn: 'root'
 })
@@ -69,7 +70,7 @@ export class NewsService {
     return this.http.get<any[]>(url, { headers });
   }
 
-  async gettoriesById(id: number): Promise<Observable<singleNew>> {
+  async gettSoriesById(id: number): Promise<Observable<singleNew>> {
     const url = `${this.baseUrl}/api/v1/stories/${id}`;
     const token = await this.getToken();
 
@@ -79,4 +80,53 @@ export class NewsService {
     });
     return this.http.get<singleNew>(url, { headers });
   }
+
+  async getArts(limit: number = 20, offset:number = 0): Promise<Observable<any[]>> {
+    const url = `${this.baseUrl}/api/v1/arts/?count=${limit}&start=${offset}`;
+
+    const token = await this.getToken();
+    console.log('Token: ', token);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.get<any[]>(url, { headers });
+  }
+
+  async getArtsById(id: number): Promise<Observable<singleNew>> {
+    const url = `${this.baseUrl}/api/v1/arts/${id}`;
+    const token = await this.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.get<singleNew>(url, { headers });
+  }
+
+  async getAds(limit: number = 20, offset:number = 0): Promise<Observable<any[]>> {
+    const url = `${this.baseUrl}/api/v1/advertisments/?count=${limit}&start=${offset}`;
+
+    const token = await this.getToken();
+    console.log('Token: ', token);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.get<any[]>(url, { headers });
+  }
+
+  async getAdsById(id: number): Promise<Observable<singleNew>> {
+    const url = `${this.baseUrl}/api/v1/advertisments/${id}`;
+    const token = await this.getToken();
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    });
+    return this.http.get<singleNew>(url, { headers });
+  }
 }
+
