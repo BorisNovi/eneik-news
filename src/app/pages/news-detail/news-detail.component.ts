@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../services/news.service';
+import { singleNew } from 'src/app/interfaces/news-interface';
 
 @Component({
   selector: 'app-news-detail',
@@ -9,7 +10,7 @@ import { NewsService } from '../../services/news.service';
 })
 
 export class NewsDetailComponent implements OnInit {
-  news: any;
+  single_new: singleNew;
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
 
@@ -17,7 +18,7 @@ export class NewsDetailComponent implements OnInit {
     const newsId = this.route.snapshot.params['id'].slice(3);
 
     (await this.newsService.getNewsById(newsId)).subscribe(data => {
-      this.news = data;
+      this.single_new = data;
     });
   }
 }

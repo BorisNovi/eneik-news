@@ -1,6 +1,8 @@
 export interface singleNew {
   date: string,
   header: string,
+  subheader: string,
+  author: string,
   id: number,
   images_0: string[],
   images_1: string[],
