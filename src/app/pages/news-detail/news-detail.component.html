@@ -1,18 +1,15 @@
-
-<a href="/main">To main</a>
-
 <div class="container">
-  <img [src]="news?.main_image" alt="Heading bg" class="heading-image">
   <div class="new-container">
-    <div class="new-heading">
+    <div class="new-heading"
+      [style.background-image]="(news?.main_image) ? 'linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url(' + news?.main_image + ')' : 'linear-gradient(0deg, rgba(100, 100, 200, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%)'">
       <h2>{{ news?.header }}</h2>
-    </div>
-    <div class="new-date">
-      <h4>"Названия раздела нет в API" / {{ news?.date }}</h4>
+      <div class="new-date">
+        <h4>Новости / {{ news?.date | date: 'dd.MM.yyyy' }}</h4>
+      </div>
     </div>
     <div class="new-content">
       <div class="new-subheader">
-        <h2>{{ news?.sub_text_0 }}</h2>
+        <h2>{{ news?.subheader }} Подзаголовок будет чуть позже</h2>
       </div>
       <div class="new-main-text-1">
         <p>{{ news?.main_text }}</p>
@@ -20,11 +17,14 @@
       <div class="new-image-0">
         <img [src]="news?.images_0[0]" alt="Image 0">
       </div>
-      <div class="new-subtext">
-        <p>{{ news?.sub_text_1 }}</p>
+      <div class="new-subtext-0">
+        <p>{{ news?.sub_text_0 }}</p>
       </div>
       <div class="new-image-1">
         <img [src]="news?.images_1[0]" alt="Image 1">
+      </div>
+      <div class="new-subtext-1">
+        <p>{{ news?.sub_text_1 }}</p>
       </div>
       <div class="new-author">
         <p>"Автора нет в API"</p>
