@@ -13,6 +13,7 @@ import { Square025Component } from './components/news-squares/square025/square02
 import { NewsMainBlockComponent } from './pages/main/news-main-block/news-main-block.component';
 import { StoriesMainBlockComponent } from './pages/main/stories-main-block/stories-main-block.component';
 import { StoriesDetailComponent } from '../app/pages/stories-detail/stories-detail.component';
+import { StoriesComponent } from './pages/stories/stories.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { StoriesDetailComponent } from '../app/pages/stories-detail/stories-deta
     NewsMainBlockComponent,
     StoriesMainBlockComponent,
     StoriesDetailComponent,
+    StoriesComponent,
   ],
   imports: [
     BrowserModule,
