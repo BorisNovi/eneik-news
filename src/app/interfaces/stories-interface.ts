@@ -1,4 +1,4 @@
-export interface singleNew {
+export interface singleStory {
   category: string,
   date: string,
   header: string,

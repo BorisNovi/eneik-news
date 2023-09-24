@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../../services/news.service';
-import { singleNew } from '../../../interfaces/news-interface';
+import { singleStory } from 'src/app/interfaces/stories-interface';
 @Component({
   selector: 'app-stories-main-block',
   templateUrl: './stories-main-block.component.html',
   styleUrls: ['./stories-main-block.component.scss']
 })
 export class StoriesMainBlockComponent implements OnInit {
-  storiesList: singleNew[] = []; // Создаем массив для хранения новостей
+  storiesList: singleStory[] = []; // Создаем массив для хранения новостей
 
   constructor(private newsService: NewsService) { }
 
@@ -19,18 +19,21 @@ export class StoriesMainBlockComponent implements OnInit {
     try {
       const storiesData = await this.newsService.getStories(6, 0)
       storiesData.subscribe(
-        (storiesData: singleNew[]) => {
-          // TODO: добавить отдельный интерфейс для историй
-          this.storiesList = storiesData;
-          console.log('Data in stories-main-block: ', this.storiesList[5].id);
+        (storiesData: singleStory[]) => {
+          this.storiesList = storiesData.map((storiesItem) => ({
+            ...storiesItem,
+            category: 'stories'
+          }));
+          // this.storiesList = storiesData; // когда в api будет приходить категория, раскомментровать нижнюю строку, а то, что сверху -  удалить
+          console.log(this.storiesList);
         },
         (error) => {
-          console.error('Error loading news:', error);
+          console.error('Error loading stories:', error);
         }
       );
 
     } catch (error) {
-      console.error('Error loading news:', error);
+      console.error('Error loading stories:', error);
     }
   }
 }

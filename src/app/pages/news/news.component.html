@@ -1,8 +1,25 @@
-<h1>Раздел в разработке</h1>
-<h2>{{ someNew }}</h2>
-<a href="/main">To main page</a>
-<a href="news/:id1">To single new</a>
+<div class="news-container">
+  <div class="heading-container">
+    <h1 class="news-header">IT ЕЖЕНЕДЕЛЬНИК</h1>
+    <h5 class="news-subheader">Раз в неделю мы читаем новости IT сферы и делимся с вами самым интересным!</h5>
+  </div>
+  <div class="content-container">
+    <div class="last-week-container">
+      <div class="week-days">
+        <p>{{week}}</p>
+      </div>
+      <div class="squares-container">
+        <app-square1 [data]="newsList[0]"></app-square1>
+        <div class="squares-container-inner">
+          <app-square025 [data]="newsList[0]"></app-square025>
+          <app-square025 [data]="newsList[1]"></app-square025>
+          <app-square05 [data]="newsList[2]"></app-square05>
+        </div>
+        <app-square025 [data]="newsList[3]"></app-square025>
+        <app-square025 [data]="newsList[4]"></app-square025>
+        <app-square025 [data]="newsList[5]"></app-square025>
+        <app-square025 [data]="newsList[6]"></app-square025>
+      </div>
+    </div>
 
-<p>Response</p>
-<h2>{{ news[0].header }}</h2>
-<p>{{ news[0].main_text }}</p>
+  </div>

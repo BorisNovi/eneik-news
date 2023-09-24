@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../services/news.service';
-import { singleNew } from 'src/app/interfaces/news-interface';
+import { singleStory } from 'src/app/interfaces/stories-interface';
 
 @Component({
   selector: 'app-stories-detail',
@@ -9,7 +9,7 @@ import { singleNew } from 'src/app/interfaces/news-interface';
   styleUrls: ['./stories-detail.component.scss']
 })
 export class StoriesDetailComponent implements OnInit {
-  single_story: singleNew;
+  single_story: singleStory;
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
 
