@@ -85,7 +85,7 @@ export class NewsService{
     return this.http.get<any[]>(url, { headers });
   }
 
-  async gettSoriesById(id: number): Promise<Observable<singleNew>> {
+  async getStoriesById(id: number): Promise<Observable<singleNew>> {
     const url = `${this.baseUrl}/api/v1/stories/${id}`;
 
     const headers = new HttpHeaders({

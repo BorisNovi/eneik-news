@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
 
-  .new-container {
+  .story-container {
     margin: 0 auto;
     max-width: 1920px;
     display: flex;
@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: flex-start;
 
-    .new-heading {
+    .story-heading {
       min-height: 40rem;
       max-width: 100%;
       margin: 0 auto;
@@ -29,7 +29,7 @@
         text-align: center;
       }
 
-      .new-date {
+      .story-date {
         h4 {
           font-size: 16px;
           font-weight: 500;
@@ -37,7 +37,7 @@
       }
     }
 
-    .new-content {
+    .story-content {
       box-sizing: border-box;
       width: 926px;
       display: flex;
@@ -51,11 +51,11 @@
       padding: 5rem 10rem;
       border-radius: 25px;
 
-      .new-subheader {
+      .story-subheader {
         h2 {}
       }
 
-      .new-main-text-1 {
+      .story-main-text-1 {
         p {
           font-size: 20px;
           line-height: 28px;
@@ -63,14 +63,14 @@
         }
       }
 
-      .new-image-0 {
+      .story-image-0 {
         img {
           max-width: 768px;
           height: auto;
         }
       }
 
-      .new-subtext-0 {
+      .story-subtext-0 {
         p {
           font-size: 20px;
           line-height: 28px;
@@ -78,14 +78,14 @@
         }
       }
 
-      .new-image-1 {
+      .story-image-1 {
         img {
           max-width: 768px;
           height: auto;
         }
       }
 
-      .new-subtext-1 {
+      .story-subtext-1 {
         p {
           font-size: 20px;
           line-height: 28px;
@@ -93,7 +93,7 @@
         }
       }
 
-      .new-author {
+      .story-author {
         p {
           font-size: 20px;
           line-height: 28px;

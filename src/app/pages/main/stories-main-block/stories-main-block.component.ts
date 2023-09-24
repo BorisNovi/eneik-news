@@ -17,12 +17,12 @@ export class StoriesMainBlockComponent implements OnInit {
 
   async loadStories() {
     try {
-      const newsData = await this.newsService.getStories(6, 0)
-      newsData.subscribe(
-        (newsData: singleNew[]) => {
+      const storiesData = await this.newsService.getStories(6, 0)
+      storiesData.subscribe(
+        (storiesData: singleNew[]) => {
           // TODO: добавить отдельный интерфейс для историй
-          this.storiesList = newsData;
-          console.log('Data in stories-main-block: ', this.storiesList);
+          this.storiesList = storiesData;
+          console.log('Data in stories-main-block: ', this.storiesList[5].id);
         },
         (error) => {
           console.error('Error loading news:', error);
