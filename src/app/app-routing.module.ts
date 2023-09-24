@@ -5,6 +5,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { StoriesComponent } from './pages/stories/stories.component';
 import { NewsDetailComponent } from './pages/news-detail/news-detail.component';
 import { StoriesDetailComponent } from './pages/stories-detail/stories-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'main', component: MainComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
   // Добавляем динамический маршрут для новостей
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'stories/:id', component: StoriesDetailComponent},
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({

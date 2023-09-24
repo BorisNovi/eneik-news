@@ -14,6 +14,7 @@ import { NewsMainBlockComponent } from './pages/main/news-main-block/news-main-b
 import { StoriesMainBlockComponent } from './pages/main/stories-main-block/stories-main-block.component';
 import { StoriesDetailComponent } from '../app/pages/stories-detail/stories-detail.component';
 import { StoriesComponent } from './pages/stories/stories.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { StoriesComponent } from './pages/stories/stories.component';
     StoriesMainBlockComponent,
     StoriesDetailComponent,
     StoriesComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
