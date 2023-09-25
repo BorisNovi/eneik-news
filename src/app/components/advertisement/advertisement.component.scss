@@ -1,0 +1,22 @@
+.ads-container {
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  max-width: 1240px;
+
+  .ads-link {
+    .ads-image {
+      width: 100%;
+      transition: 1s all;
+    }
+  }
+}
+
+@media (hover :hover) {
+  .ads-image:hover {
+    transform: scale(1.15);
+  }
+}

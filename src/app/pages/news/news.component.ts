@@ -39,7 +39,7 @@ export class NewsComponent implements OnInit {
           if (page === 1) {
             this.newsList = mappedData;
           } else {
-            this.newsList = [...this.newsList, ...mappedData];
+            this.newsList.push(...mappedData);
           }
           //this.newsList = newsData; // когда в api будет приходить категория, раскомментровать нижнюю строку, а то, что сверху -  удалить
           console.log(this.newsList);
@@ -48,11 +48,13 @@ export class NewsComponent implements OnInit {
           this.week = this.getDates();
         },
         (error) => {
+          this.isLoading = false;
           console.error('Error loading news:', error);
         }
       );
 
     } catch (error) {
+      this.isLoading = false;
       console.error('Error loading news:', error);
     }
   }
@@ -87,7 +89,7 @@ export class NewsComponent implements OnInit {
       }
 
       this.scrollTimeout = setTimeout(() => {
-        // this.loadNews(this.currentPage); // Этот метод надо настраивать
+        this.loadNews(this.currentPage); // Этот метод надо настраивать
       }, 1000);
     }
   }

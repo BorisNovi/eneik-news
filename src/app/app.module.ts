@@ -15,6 +15,7 @@ import { StoriesMainBlockComponent } from './pages/main/stories-main-block/stori
 import { StoriesDetailComponent } from '../app/pages/stories-detail/stories-detail.component';
 import { StoriesComponent } from './pages/stories/stories.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdvertisementComponent } from './components/advertisement/advertisement.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     StoriesDetailComponent,
     StoriesComponent,
     NotFoundComponent,
+    AdvertisementComponent,
   ],
   imports: [
     BrowserModule,
