@@ -15,16 +15,18 @@
   padding: 2rem;
   background-size: cover; /* Задайте размер, который вам нужен */
   background-repeat: no-repeat;
-
-  img {
-    position: relative;
-    z-index: -1;
-  }
+  background-position: center;
 
   .square-header-container {
     h2 {
       font-size: 24px;
       font-weight: 700;
     }
+  }
+}
+
+@media (hover: hover) {
+  .container:hover {
+    background-size: 105%;
   }
 }

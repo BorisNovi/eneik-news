@@ -20,11 +20,7 @@ export class StoriesMainBlockComponent implements OnInit {
       const storiesData = await this.newsService.getStories(6, 0)
       storiesData.subscribe(
         (storiesData: singleStory[]) => {
-          this.storiesList = storiesData.map((storiesItem) => ({
-            ...storiesItem,
-            category: 'stories'
-          }));
-          // this.storiesList = storiesData; // когда в api будет приходить категория, раскомментровать нижнюю строку, а то, что сверху -  удалить
+          this.storiesList = storiesData;
           console.log(this.storiesList);
         },
         (error) => {

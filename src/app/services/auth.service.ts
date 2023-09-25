@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 })
 
 export class AuthService{
-  private baseUrl = 'http://localhost:8000'; // https://eneikapi.onrender.com
+  private baseUrl = 'http://localhost:8000'; // https://eneik-media.com
 
   constructor(private http: HttpClient) {}
 
@@ -19,7 +19,7 @@ export class AuthService{
 
     const body = {
       username: 'root',
-      password: 'Kutaisi2023',
+      password: '123', // Если перестала раброать аутентификация, проверь, совпадает ли пароль
     };
 
     try {

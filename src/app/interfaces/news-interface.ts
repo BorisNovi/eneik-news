@@ -11,4 +11,5 @@ export interface singleNew {
   main_text: string,
   sub_text_0: string,
   sub_text_1: string,
+  video: string,
 }

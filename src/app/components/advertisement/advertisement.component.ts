@@ -23,7 +23,6 @@ export class AdvertisementComponent implements OnInit{
       newsData.subscribe(
         (newsData: singleAd[]) => {
           this.adsList = newsData;
-          console.log(this.adsList);
         },
         (error) => {
           console.error('Error loading ads:', error);

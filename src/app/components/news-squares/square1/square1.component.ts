@@ -21,6 +21,5 @@ export class Square1Component implements OnInit {
   // Пример метода для обработки данных
   async processData() {
 
-    console.log('Received data in square 1: ', this.data);
   }
 }

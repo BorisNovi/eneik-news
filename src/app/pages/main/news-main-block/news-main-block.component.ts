@@ -21,11 +21,7 @@ export class NewsMainBlockComponent implements OnInit {
       const newsData = await this.newsService.getNews(4, 0);
       newsData.subscribe(
         (newsData: singleNew[]) => {
-          this.newsList = newsData.map((newsItem) => ({
-            ...newsItem,
-            category: 'news'
-          }));
-          //this.newsList = newsData; // когда в api будет приходить категория, раскомментровать нижнюю строку, а то, что сверху -  удалить
+          this.newsList = newsData;
           console.log(this.newsList);
         },
         (error) => {

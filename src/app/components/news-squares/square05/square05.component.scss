@@ -15,6 +15,7 @@
   padding: 2rem;
   background-size: cover; /* Задайте размер, который вам нужен */
   background-repeat: no-repeat;
+  background-position: center;
 
   img {
     position: relative;
@@ -34,5 +35,11 @@
       font-size: 20px;
       font-weight: 500;
     }
+  }
+}
+
+@media (hover: hover) {
+  .container:hover {
+    background-size: 105%;
   }
 }
