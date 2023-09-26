@@ -8,8 +8,11 @@ import { singleAd } from 'src/app/interfaces/ads-interface';
   styleUrls: ['./advertisement.component.scss']
 })
 export class AdvertisementComponent implements OnInit{
-
   adsList: singleAd[] = [];
+  header: string = ' ';
+  id: number = 0;
+  image: string = ' ';
+  url: string = ' ';
 
   constructor(private newsService: NewsService) { }
 
@@ -23,6 +26,12 @@ export class AdvertisementComponent implements OnInit{
       newsData.subscribe(
         (newsData: singleAd[]) => {
           this.adsList = newsData;
+
+          // Временно. Потом нужно будет делать проход циклом
+          this.header = this.adsList[0].header;
+          this.id = this.adsList[0].id;
+          this.image = this.adsList[0].image;
+          this.url = this.adsList[0].url;
         },
         (error) => {
           console.error('Error loading ads:', error);

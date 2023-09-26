@@ -22,7 +22,6 @@ export class NewsMainBlockComponent implements OnInit {
       newsData.subscribe(
         (newsData: singleNew[]) => {
           this.newsList = newsData;
-          console.log(this.newsList);
         },
         (error) => {
           console.error('Error loading news:', error);
