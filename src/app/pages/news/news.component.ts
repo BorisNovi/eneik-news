@@ -12,7 +12,7 @@ import { singleNew } from 'src/app/interfaces/news-interface';
 
 
 export class NewsComponent implements OnInit {
-  newsList: singleNew[] = [];
+  newsGroups: singleNew[][] = [];
   week: string;
   isLoading: boolean;
   currentPage: number;
@@ -21,7 +21,6 @@ export class NewsComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.isLoading = false;
     this.currentPage = 1;
-    this.newsList = [];
     this.week = '';
     this.loadNews();
   }
@@ -33,50 +32,48 @@ export class NewsComponent implements OnInit {
       newsData.subscribe(
         (newsData: singleNew[]) => {
           const mappedData = newsData.map((newsItem) => ({
-            ...newsItem,
-            category: 'news'
+            ...newsItem
           }));
           if (page === 1) {
-            this.newsList = mappedData;
+            this.newsGroups = [mappedData]; // Создаем первую группу новостей
           } else {
-            this.newsList.push(...mappedData);
+            this.newsGroups.push(mappedData); // Добавляем новую группу к массиву
           }
-          //this.newsList = newsData; // когда в api будет приходить категория, раскомментровать нижнюю строку, а то, что сверху -  удалить
-          console.log(this.newsList);
           this.isLoading = false;
           this.currentPage = page + 1;
-          this.week = this.getDates();
         },
         (error) => {
           this.isLoading = false;
           console.error('Error loading news:', error);
         }
       );
-
     } catch (error) {
       this.isLoading = false;
       console.error('Error loading news:', error);
     }
   }
 
-  private getDates(): string {
-    let startDate = new Date();
-    if (this.newsList[6]) {
-      startDate = new Date(this.newsList[6].date);
+  public getDates(groupIndex: number): string {
+    const group = this.newsGroups[groupIndex];
+    if (!group || group.length === 0) {
+      return 'Новости закончились!'; // Если группа пуста или отсутствует
     }
-    const endDate = new Date(this.newsList[0].date);
+
+    const startDate = new Date(group[group.length - 1].date);
+    const endDate = new Date(group[0].date);
 
     const startMonth = startDate.toLocaleString('default', { month: 'short' });
     const endMonth = endDate.toLocaleString('default', { month: 'short' });
     const startDay = startDate.getDate();
     const endDay = endDate.getDate();
-    console.log('month: ', endDate);
-
 
     return `${endDay} ${endMonth} - ${startDay} ${startMonth}`;
   }
 
+
   private scrollTimeout: any;
+  private prevScrollPosition: number = 0; // Переменная для хранения предыдущей позиции скролла
+
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
     const scrollPosition = window.pageYOffset + window.innerHeight;
@@ -89,9 +86,26 @@ export class NewsComponent implements OnInit {
       }
 
       this.scrollTimeout = setTimeout(() => {
-        this.loadNews(this.currentPage); // Этот метод надо настраивать
-      }, 1000);
+        const currentScrollPosition = window.scrollY;
+
+        // Проверяем, что скролл двигается вниз
+        if (currentScrollPosition > this.prevScrollPosition) {
+          const currentGroupIndex = this.newsGroups.length - 1; // Индекс текущей группы новостей
+          const currentGroup = this.newsGroups[currentGroupIndex];
+
+          if (!currentGroup || currentGroup.length === 0) {
+            return; // Ничего не делаем, если группа пуста или отсутствует
+          }
+
+          // Загружаем следующую группу новостей
+          this.loadNews(this.currentPage);
+        }
+
+        // Обновляем предыдущую позицию скролла
+        this.prevScrollPosition = currentScrollPosition;
+      }, 500);
     }
   }
+
 
 }

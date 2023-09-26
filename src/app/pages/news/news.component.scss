@@ -26,15 +26,18 @@
   .content-container {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
     .last-week-container {
       display: flex;
       flex-direction: column;
+      margin: 2rem 0;
 
       .week-days {
         align-self: flex-end;
         margin: 0 0.5rem;
       }
+
       .squares-container {
         display: flex;
         flex-direction: row;
