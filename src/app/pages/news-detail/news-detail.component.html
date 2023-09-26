@@ -1,33 +1,37 @@
 <div class="container">
   <div class="new-container">
     <div class="new-heading"
-      [style.background-image]="(single_new?.main_image) ? 'linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url(' + single_new?.main_image + ')' : 'linear-gradient(0deg, rgba(100, 100, 200, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%)'">
-      <h2>{{ single_new?.header }}</h2>
+      [style.background-image]="(main_image) ? 'linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.9) 100%), url(' + main_image + ')' : 'linear-gradient(0deg, rgba(100, 100, 200, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%)'">
+      <h2>{{ header }}</h2>
       <div class="new-date">
-        <h4>Новости / {{ single_new?.date | date: 'dd.MM.yyyy' }}</h4>
+        <h4>Новости / {{ date | date: 'dd.MM.yyyy' }}</h4>
       </div>
     </div>
     <div class="new-content">
       <div class="new-subheader">
-        <h2>{{ single_new?.subheader }}</h2>
+        <h2>{{ subheader }}</h2>
       </div>
       <div class="new-main-text-1">
-        <p>{{ single_new?.main_text }}</p>
+        <p>{{ main_text }}</p>
       </div>
-      <div class="new-image-0">
-        <img [src]="single_new?.images_0?.[0]" alt="Image 0">
+      <iframe *ngIf="single_new.video !== null && single_new.video !== ''" width="560" height="315" [src]="video"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+      <div class="new-image-0" *ngIf="images_0?.[0]">
+        <img [src]="image_0_0" alt="Image 0">
       </div>
       <div class="new-subtext-0">
-        <p>{{ single_new?.sub_text_0 }}</p>
+        <p>{{ sub_text_0 }}</p>
       </div>
-      <div class="new-image-1">
-        <img [src]="single_new?.images_1?.[0]" alt="Image 1">
+      <div class="new-image-1" *ngIf="images_1?.[0]">
+        <img [src]="image_1_0" alt="Image 1">
       </div>
       <div class="new-subtext-1">
-        <p>{{ single_new?.sub_text_1 }}</p>
+        <p>{{ sub_text_1 }}</p>
       </div>
       <div class="new-author">
-        <p>Автор: {{ single_new?.author}}</p>
+        <p>Автор: {{ author }}</p>
       </div>
     </div>
   </div>
