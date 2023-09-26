@@ -48,7 +48,8 @@ export class NewsDetailComponent implements OnInit {
       this.sub_text_0 = data.sub_text_0;
       this.sub_text_1 = data.sub_text_1;
       this.subheader = data.subheader;
-      this.video = this.sanitizer.bypassSecurityTrustResourceUrl(data.video);
+      const data_video = data ? data.video : ' ';
+      this.video = this.sanitizer.bypassSecurityTrustResourceUrl(data_video);
 
       this.image_0_0 = this.images_0[0];
       this.image_1_0 = this.images_1[0];

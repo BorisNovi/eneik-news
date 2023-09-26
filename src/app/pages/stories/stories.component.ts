@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../services/news.service';
-import { singleStory} from 'src/app/interfaces/stories-interface';
+import { singleStory } from 'src/app/interfaces/stories-interface';
 
 @Component({
   selector: 'app-stories',
