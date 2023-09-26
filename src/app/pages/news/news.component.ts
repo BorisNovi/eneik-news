@@ -76,7 +76,7 @@ export class NewsComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
-    const scrollPosition = window.pageYOffset + window.innerHeight;
+    const scrollPosition = window.scrollY + window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
     const scrollPercentage = (scrollPosition / documentHeight) * 100;
 

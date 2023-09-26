@@ -1,1 +1,23 @@
-<h1>Раздел в разработке</h1>
+<div class="stories-container">
+  <div class="heading-container">
+    <h1 class="stories-header">ИСТОРИИ</h1>
+  </div>
+
+  <div class="content-container">
+    <div *ngFor="let storiesGroup of storiesGroups; let i = index" class="last-week-container">
+      <div class="squares-container">
+        <app-square1 [data]="storiesGroup[0]"></app-square1>
+        <div class="squares-container-inner">
+          <app-square025 [data]="storiesGroup[1]"></app-square025>
+          <app-square025 [data]="storiesGroup[2]"></app-square025>
+          <app-square05 [data]="storiesGroup[3]"></app-square05>
+        </div>
+        <app-square05 [data]="storiesGroup[4]"></app-square05>
+        <app-square025 [data]="storiesGroup[5]"></app-square025>
+        <app-square025 [data]="storiesGroup[6]"></app-square025>
+      </div>
+    </div>
+    <div *ngIf="isLoading" class="loader">Loading...</div>
+  </div>
+
+</div>
