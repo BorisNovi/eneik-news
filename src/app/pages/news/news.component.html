@@ -10,15 +10,15 @@
         <p>{{ getDates(i) }}</p>
       </div>
       <div class="squares-container">
-        <app-square1 [data]="newsGroup[0]"></app-square1>
+        <app-square1 *ngIf="newsGroup[0]" [data]="newsGroup[0]"></app-square1>
         <div class="squares-container-inner">
-          <app-square025 [data]="newsGroup[1]"></app-square025>
-          <app-square025 [data]="newsGroup[2]"></app-square025>
-          <app-square05 [data]="newsGroup[3]"></app-square05>
+          <app-square025 *ngIf="newsGroup[1]" [data]="newsGroup[1]"></app-square025>
+          <app-square025 *ngIf="newsGroup[2]" [data]="newsGroup[2]"></app-square025>
+          <app-square05 *ngIf="newsGroup[3]" [data]="newsGroup[3]"></app-square05>
         </div>
-        <app-square05 [data]="newsGroup[4]"></app-square05>
-        <app-square025 [data]="newsGroup[5]"></app-square025>
-        <app-square025 [data]="newsGroup[6]"></app-square025>
+        <app-square05 *ngIf="newsGroup[4]" [data]="newsGroup[4]"></app-square05>
+        <app-square025 *ngIf="newsGroup[5]" [data]="newsGroup[5]"></app-square025>
+        <app-square025 *ngIf="newsGroup[6]" [data]="newsGroup[6]"></app-square025>
       </div>
     </div>
     <div *ngIf="isLoading" class="loader">Loading...</div>

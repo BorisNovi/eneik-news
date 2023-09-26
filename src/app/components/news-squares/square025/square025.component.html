@@ -1,8 +1,8 @@
-<a href="{{ category }}/:id{{ id }}">
+<a *ngIf="category" href="{{ category }}/:id{{ id }}">
 <div class="container"
   [style.background-image]="'linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(255, 255, 255, 0) 100%), url(' + (main_image || '') + ')'">
   <div class="square-header-container">
-    <h2>{{ header | slice:0:40 }}{{ header!.length > 40 ? '...' : '' }}</h2>
+    <h2 *ngIf="header">{{ header | slice:0:40 }}{{ header!.length > 40 ? '...' : '' }}</h2>
   </div>
 </div>
 </a>
