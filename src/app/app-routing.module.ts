@@ -8,10 +8,9 @@ import { StoriesDetailComponent } from './pages/stories-detail/stories-detail.co
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'news', component: NewsComponent },
   { path: 'stories', component: StoriesComponent },
-  { path: '', redirectTo: '/main', pathMatch: 'full' }, // По умолчанию перенаправляем на 'main'
   // Добавляем динамический маршрут для новостей
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'stories/:id', component: StoriesDetailComponent},
