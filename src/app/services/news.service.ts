@@ -13,7 +13,7 @@ import { AuthService } from './auth.service';
 
 
 export class NewsService{
-  private baseUrl = 'http://localhost:8000'; // https://eneikapi.onrender.com
+  private baseUrl = 'http://194.67.111.147:8000'; // https://eneikapi.onrender.com
   auth: Promise<string | null>;
 
   constructor(private http: HttpClient) {

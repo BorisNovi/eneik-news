@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://eneikapi.onrender.com/",
+    "target": "http://localhost:8000/",
     "secure": false
   }
 }
