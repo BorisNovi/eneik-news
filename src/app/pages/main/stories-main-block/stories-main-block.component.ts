@@ -22,7 +22,10 @@ export class StoriesMainBlockComponent implements OnInit {
         (storiesData: singleStory[]) => {
           this.storiesList = storiesData;
           console.log(this.storiesList);
-        },
+        }
+      );
+
+      storiesData.subscribe(
         (error) => {
           console.error('Error loading stories:', error);
         }

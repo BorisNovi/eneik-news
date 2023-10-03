@@ -48,7 +48,10 @@ export class NewsMainBlockComponent implements OnInit {
 
           this.new_4_id = newsData[3] ? newsData[3].id : 0;
           this.new_4_header = newsData[3] ? newsData[3].header : ' ';
-        },
+        }
+      );
+
+      newsData.subscribe(
         (error) => {
           console.error('Error loading news:', error);
         }

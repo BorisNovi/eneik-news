@@ -32,7 +32,10 @@ export class AdvertisementComponent implements OnInit{
           this.id = this.adsList[0].id;
           this.image = this.adsList[0].image;
           this.url = this.adsList[0].url;
-        },
+        }
+      );
+
+      newsData.subscribe(
         (error) => {
           console.error('Error loading ads:', error);
         }

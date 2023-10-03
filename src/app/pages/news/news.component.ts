@@ -67,7 +67,7 @@ export class NewsComponent implements OnInit {
     const startDay = startDate.getDate();
     const endDay = endDate.getDate();
 
-    return `${endDay} ${endMonth} - ${startDay} ${startMonth}`;
+    return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
   }
 
 
