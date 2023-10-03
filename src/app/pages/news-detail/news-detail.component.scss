@@ -5,6 +5,7 @@
   flex-direction: column;
 
   .new-container {
+    background-color: #fff;
     width: 100%;
     margin: 0 auto;
     max-width: 1920px;
@@ -14,7 +15,8 @@
     align-items: flex-start;
 
     .new-heading {
-      min-height: 40rem;
+      padding: 5rem 0 0;
+      min-height: 32rem;
       width: 100%;
       max-width: 100%;
       margin: 0 auto;
@@ -50,7 +52,7 @@
       align-items: center;
       background-color: #fff;
       color: #000;
-      margin: -10rem 0 0 0;
+      margin: -10rem 0 -6rem 0;
       padding: 5rem 10rem;
       border-radius: 25px;
 
