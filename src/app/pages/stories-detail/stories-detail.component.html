@@ -12,7 +12,7 @@
         <h2>{{ subheader }}</h2>
       </div>
       <div class="story-main-text-1">
-        <p>{{ main_text }}</p>
+        <p [innerHTML]="main_text"></p>
       </div>
       <iframe *ngIf="single_story?.video !== null && single_story?.video !== ''" width="560" height="315" [src]="video"
         title="YouTube video player" frameborder="0"
@@ -22,16 +22,16 @@
         <img [src]="image_0_0" alt="Image 0">
       </div>
       <div class="story-subtext-0">
-        <p>{{ sub_text_0 }}</p>
+        <p [innerHTML]="sub_text_0"></p>
       </div>
       <div class="story-image-1" *ngIf="images_1?.[0]">
         <img [src]="image_1_0" alt="Image 1">
       </div>
       <div class="story-subtext-1">
-        <p>{{ sub_text_1 }}</p>
+        <p [innerHTML]="sub_text_1"></p>
       </div>
       <div class="story-author">
-        <p>Автор: {{ author}}</p>
+        <p>Автор: {{ author }}</p>
       </div>
     </div>
   </div>

@@ -43,9 +43,9 @@ export class StoriesDetailComponent implements OnInit {
       this.images_0 = data.images_0;
       this.images_1 = data.images_1;
       this.main_image = data.main_image;
-      this.main_text = data.main_text;
-      this.sub_text_0 = data.sub_text_0;
-      this.sub_text_1 = data.sub_text_1;
+      this.main_text = data.main_text.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
+      this.sub_text_0 = data.sub_text_0.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
+      this.sub_text_1 = data.sub_text_1.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
       this.subheader = data.subheader;
       const data_video = data ? data.video : ' ';
       this.video = this.sanitizer.bypassSecurityTrustResourceUrl(data_video);
