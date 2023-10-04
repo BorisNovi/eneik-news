@@ -61,8 +61,6 @@
         text-align: center;
         padding: 2rem 0;
         width: 80%;
-
-        h2 {}
       }
 
       .story-main-text-1 {
@@ -122,22 +120,15 @@
   }
 }
 
-@media screen and (max-width: 1024px) {}
-
 @media screen and (max-width: 768px) {
   .container {
     .story-container {
-
       .story-heading {
         min-height: 60rem;
 
         h2 {
           font-size: 46px;
           max-width: 90%;
-        }
-
-        .story-date {
-          h4 {}
         }
       }
 
@@ -149,37 +140,11 @@
         .story-subheader {
           padding: 2rem 0;
           width: 80%;
-
-          h2 {}
-        }
-
-        .story-main-text-1 {
-          p {}
         }
 
         .story-video {
           max-width: 540px;
           height: 300px;
-        }
-
-        .story-image-0 {
-          img {}
-        }
-
-        .story-subtext-0 {
-          p {}
-        }
-
-        .story-image-1 {
-          img {}
-        }
-
-        .story-subtext-1 {
-          p {}
-        }
-
-        .story-author {
-          p {}
         }
       }
     }
@@ -196,10 +161,6 @@
         h2 {
           font-size: 26px;
           max-width: 90%;
-        }
-
-        .story-date {
-          h4 {}
         }
       }
 
@@ -227,18 +188,10 @@
           height: 200px;
         }
 
-        .story-image-0 {
-          img {}
-        }
-
         .story-subtext-0 {
           p {
             font-size: 16px;
           }
-        }
-
-        .story-image-1 {
-          img {}
         }
 
         .story-subtext-1 {
