@@ -5,24 +5,24 @@
         <img src="../assets/icons/logo.svg" alt="Logo" class="header-logo-img">
       </a>
     </div>
-    <nav class="header-links">
+    <nav class="header-links" [ngClass]="{'menu-open': isMenuOpen}">
       <div class="links-container-1">
         <div class="news-link-container">
-          <a routerLink="/news" class="header-link header-link-news">новости</a>
+          <a routerLink="/news" class="header-link header-link-news" (click)="closeMenu()">новости</a>
         </div>
         <div class="news-link-container">
-          <a routerLink="/stories" class="header-link header-link-stories">истории</a>
+          <a routerLink="/stories" class="header-link header-link-stories" (click)="closeMenu()">истории</a>
         </div>
         <div class="news-link-container">
-          <a routerLink="/art" class="header-link header-link-art">арт</a>
+          <a routerLink="/art" class="header-link header-link-art" (click)="closeMenu()">арт</a>
         </div>
       </div>
       <div class="links-container-2">
         <div class="news-link-container">
-          <a routerLink="/events" class="header-link header-link-events">объявления</a>
+          <a routerLink="/events" class="header-link header-link-events" (click)="closeMenu()">объявления</a>
         </div>
         <div class="news-link-container">
-          <a routerLink="/tell" class="header-link header-link-tell">рассказать историю</a>
+          <a routerLink="/tell" class="header-link header-link-tell" (click)="closeMenu()">рассказать историю</a>
         </div>
       </div>
     </nav>
@@ -43,7 +43,7 @@
         </a>
       </div>
     </div>
-    <div class="burger-icon">
+    <div class="burger-icon" (click)="toggleMenu()" [ngClass]="{'burger-icon--active': isMenuOpen}">
       <span class="burger-icon__line"></span>
       <span class="burger-icon__line"></span>
       <span class="burger-icon__line"></span>
