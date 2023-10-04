@@ -34,8 +34,13 @@ header {
         gap: 3rem;
       }
 
-      .news-link-container {
-        // padding: 0 2rem;
+      .social-media-links__burger {
+        margin: 2rem 0 0;
+        width: 80%;
+        display: none;
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 2rem;
       }
     }
 
@@ -111,7 +116,6 @@ header {
       justify-content: flex-start;
       align-items: flex-start;
       gap: 2rem;
-      max-width: 290px;
 
       .social-media-links {
         display: flex;
@@ -148,18 +152,6 @@ header {
         .links-container-2 {
           gap: 1rem;
         }
-
-        .news-link-container {}
-      }
-
-      .social-media-links {
-
-        .social-media-link-container {}
-      }
-
-      .burger-icon {
-
-        .burger-icon__line {}
       }
     }
   }
@@ -200,27 +192,83 @@ header {
           gap: 2rem;
         }
 
-        .news-link-container {}
+        .social-media-links__burger {
+          display: flex;
+        }
       }
 
       .social-media-links {
         display: none;
-
-        .social-media-link-container {}
       }
 
       .burger-icon {
         right: 0;
         position: relative;
-
-        .burger-icon__line {}
       }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 500px;
+    // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    background-color: #000;
+
+    .footer-container {
+      max-width: 668px;
+      margin: 0 auto 7rem;
+      gap: 0;
+
+      .footer-links-1,
+      .footer-links-2,
+      .footer-links-3,
+      .footer-links-4 {
+        font-size: 12px;
+        text-wrap: nowrap;
+      }
+
     }
   }
 }
 
 @media screen and (max-width: 425px) {
   header {
-    background-color: rgb(97, 97, 97);
+    .header-container {
+      padding: 1rem 2rem;
+
+      .burger-icon {
+        .burger-icon__line {
+          height: .1rem;
+        }
+      }
+    }
   }
+
+  .footer {
+    align-items: flex-end;
+    height: 600px;
+
+    .footer-container {
+      margin: 1rem 0 4rem 0;
+      flex-direction: column;
+      width: 300px;
+      gap: 3rem;
+
+      .footer-links-1 {
+        position: absolute;
+      }
+
+      .footer-links-2,
+      .footer-links-3,
+      .footer-links-4 {
+        width: 9rem;
+        align-self: flex-end;
+        gap: 1rem;
+      }
+    }
+  }
+
+
 }
