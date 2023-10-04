@@ -29,6 +29,7 @@
       background-position: center;
 
       h2 {
+        word-wrap: break-word;
         font-size: 48px;
         max-width: 60%;
         text-align: center;
@@ -44,7 +45,7 @@
 
     .new-content {
       box-sizing: border-box;
-      width: 926px;
+      max-width: 926px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -57,6 +58,10 @@
       border-radius: 25px;
 
       .new-subheader {
+        text-align: center;
+        padding: 2rem 0;
+        width: 80%;
+
         h2 {}
       }
 
@@ -66,6 +71,13 @@
           line-height: 28px;
           font-weight: 300;
         }
+      }
+
+      .new-video {
+        margin: 2rem 0;
+        width: 100%;
+        max-width: 600px;
+        height: 320px;
       }
 
       .new-image-0 {
@@ -103,6 +115,142 @@
           font-size: 20px;
           line-height: 28px;
           font-weight: 400;
+          padding: 2rem 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 768px) {
+  .container {
+    .new-container {
+
+      .new-heading {
+        min-height: 60rem;
+
+        h2 {
+          font-size: 46px;
+          max-width: 90%;
+        }
+
+        .new-date {
+          h4 {}
+        }
+      }
+
+      .new-content {
+        max-width: 668px;
+        margin: -40rem 0 -6rem 0;
+        padding: 2rem 4rem;
+
+        .new-subheader {
+          padding: 2rem 0;
+          width: 80%;
+
+          h2 {}
+        }
+
+        .new-main-text-1 {
+          p {}
+        }
+
+        .new-video {
+          max-width: 540px;
+          height: 300px;
+        }
+
+        .new-image-0 {
+          img {}
+        }
+
+        .new-subtext-0 {
+          p {}
+        }
+
+        .new-image-1 {
+          img {}
+        }
+
+        .new-subtext-1 {
+          p {}
+        }
+
+        .new-author {
+          p {}
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    .new-container {
+
+      .new-heading {
+        min-height: 55rem;
+
+        h2 {
+          font-size: 26px;
+          max-width: 90%;
+        }
+
+        .new-date {
+          h4 {}
+        }
+      }
+
+      .new-content {
+        max-width: 425px;
+        margin: -40rem 0 -6rem 0;
+        padding: 2rem 3rem;
+
+        .new-subheader {
+          padding: 2rem 0;
+
+          h2 {
+            font-size: 20px;
+          }
+        }
+
+        .new-main-text-1 {
+          p {
+            font-size: 16px;
+          }
+        }
+
+        .new-video {
+          max-width: 425px;
+          height: 200px;
+        }
+
+        .new-image-0 {
+          img {}
+        }
+
+        .new-subtext-0 {
+          p {
+            font-size: 16px;
+          }
+        }
+
+        .new-image-1 {
+          img {}
+        }
+
+        .new-subtext-1 {
+          p {
+            font-size: 16px;
+          }
+        }
+
+        .new-author {
+          p {
+            font-size: 16px;
+          }
         }
       }
     }
