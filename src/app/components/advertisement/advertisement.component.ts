@@ -11,7 +11,7 @@ export class AdvertisementComponent implements OnInit{
   adsList: singleAd[] = [];
   header: string = ' ';
   id: number = 0;
-  image: string = ' ';
+  main_image: string = ' ';
   url: string = ' ';
 
   constructor(private newsService: NewsService) { }
@@ -30,7 +30,7 @@ export class AdvertisementComponent implements OnInit{
           // Временно. Потом нужно будет делать проход циклом
           this.header = this.adsList[0].header;
           this.id = this.adsList[0].id;
-          this.image = this.adsList[0].image;
+          this.main_image = this.adsList[0].main_image;
           this.url = this.adsList[0].url;
         }
       );

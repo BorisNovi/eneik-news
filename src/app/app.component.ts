@@ -10,20 +10,19 @@ export class AppComponent {
   isScrollLocked: boolean = false;
   title = 'eneik-news';
 
-  toggleMenu() {
+  toggleMenu(close: number = 0) {
     this.isMenuOpen = !this.isMenuOpen;
     this.isScrollLocked = this.isMenuOpen;
+
+    if (close) {
+      this.isMenuOpen = false;
+      this.isScrollLocked = false;
+    }
 
     if (this.isScrollLocked) {
       document.querySelector('body')!.style.overflow = 'hidden';
     } else {
-      document.querySelector('body')!.style.overflow = 'initial';
+      document.querySelector('body')!.style.overflow = '';
     }
   }
-
-  closeMenu() {
-    this.isMenuOpen = false;
-    this.isScrollLocked = false;
-  }
-
 }

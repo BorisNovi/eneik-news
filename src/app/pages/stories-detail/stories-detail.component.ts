@@ -40,8 +40,8 @@ export class StoriesDetailComponent implements OnInit {
       this.date = data.date;
       this.header = data.header;
       this.id = data.id;
-      this.images_0 = data.images_0;
-      this.images_1 = data.images_1;
+      this.images_0 = [data.image_1, data.image_2];
+      this.images_1 = [data.image_3, data.image_4];
       this.main_image = data.main_image;
       this.main_text = data.main_text.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
       this.sub_text_0 = data.sub_text_0.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
@@ -49,6 +49,9 @@ export class StoriesDetailComponent implements OnInit {
       this.subheader = data.subheader;
       const data_video = data ? data.video : ' ';
       this.video = this.sanitizer.bypassSecurityTrustResourceUrl(data_video);
+
+      this.image_0_0 = this.images_0[0];
+      this.image_1_0 = this.images_1[0];
     });
   }
 }

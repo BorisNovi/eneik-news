@@ -1,6 +1,6 @@
 export interface singleAd {
   id: number,
   header: string,
-  image: string,
+  main_image: string,
   url: string,
 }
