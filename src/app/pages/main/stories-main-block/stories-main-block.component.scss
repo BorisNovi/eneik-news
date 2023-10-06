@@ -1,7 +1,6 @@
 .main-stories-container {
   max-width: 1240px;
   margin: 5rem auto 5rem;
-  padding: 0 4rem;
 
   display: flex;
   justify-content: space-between;
@@ -9,6 +8,7 @@
   flex-direction: column;
 
   .heading-container {
+    padding: 0 3rem;
     max-width: 610px;
     display: flex;
     flex-direction: column;
@@ -47,8 +47,9 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1236px) {
   .main-stories-container {
+    padding: 0;
 
     .heading-container {
       margin: 0 0 0 1rem;
@@ -56,6 +57,8 @@
 
     .additional-container {
       justify-content: center;
+      align-self: center;
+      max-width: 910px;
     }
 
     .read-more-pseudobutton {
@@ -67,6 +70,10 @@
 @media screen and (max-width: 768px) {
   .main-stories-container {
     padding: 0;
+
+    .additional-container {
+      max-width: 510px;
+    }
   }
 }
 

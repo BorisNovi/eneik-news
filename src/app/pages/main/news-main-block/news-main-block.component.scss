@@ -125,15 +125,11 @@
       max-width: 100%;
 
       .title-new-container {
+        margin: 0 0 2rem;
+
         a {
           max-width: 100%;
-        }
-      }
 
-      .title-new-container {
-        margin: 0 0 1rem;
-
-        a {
           p {
             display: none;
           }
@@ -157,15 +153,11 @@
     .heading-container {
       gap: 6rem;
 
-      h1 {
-        font-size: 20px;
-        font-weight: 500;
-      }
-
       .title-new-container {
         a {
           h2 {
             font-size: 24px;
+            line-height: 2rem;
           }
         }
       }
@@ -182,8 +174,8 @@
           min-height: 7rem;
 
           a {
-
             h4 {
+              margin: 2rem 0;
               font-size: 14px;
             }
           }
