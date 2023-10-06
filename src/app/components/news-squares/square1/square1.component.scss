@@ -43,3 +43,48 @@
     background-size: 105%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 366px;
+    height: 372px;
+    padding: 1rem;
+
+    .square-header-container {
+      h2 {
+        font-size: 35px;
+      }
+    }
+
+    .square-subheader-container {
+      width: 60%;
+
+      h2 {
+
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 295px;
+    height: 299px;
+    justify-content: flex-end;
+
+    .square-header-container {
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    .square-subheader-container {
+
+      h2 {
+        font-size: 12px;
+      }
+    }
+  }
+}

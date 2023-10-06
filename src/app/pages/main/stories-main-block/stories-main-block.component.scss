@@ -46,3 +46,36 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .main-stories-container {
+
+    .heading-container {
+      margin: 0 0 0 1rem;
+    }
+
+    .additional-container {
+      justify-content: center;
+    }
+
+    .read-more-pseudobutton {
+      align-self: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-stories-container {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .main-stories-container {
+
+    .additional-container {
+      justify-content: center;
+      gap: .5rem;
+    }
+  }
+}

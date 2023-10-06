@@ -30,3 +30,33 @@
     background-size: 105%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: flex-end;
+    width: 177px;
+    height: 180px;
+    padding: 1rem;
+
+    .square-header-container {
+      h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 145px;
+    height: 146px;
+    justify-content: flex-end;
+
+    .square-header-container {
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}

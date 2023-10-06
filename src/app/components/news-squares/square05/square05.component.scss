@@ -13,7 +13,7 @@
   justify-content: space-between;
   overflow: hidden;
   padding: 2rem;
-  background-size: cover; /* Задайте размер, который вам нужен */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
@@ -31,6 +31,7 @@
 
   .square-subheader-container {
     width: 50%;
+
     h2 {
       font-size: 20px;
       font-weight: 500;
@@ -41,5 +42,51 @@
 @media (hover: hover) {
   .container:hover {
     background-size: 105%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: space-between;
+    width: 366px;
+    height: 180px;
+    padding: 1rem;
+
+    .square-header-container {
+      h2 {
+        margin: 0;
+        font-size: 28px;
+      }
+    }
+
+    .square-subheader-container {
+      width: 60%;
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 295px;
+    height: 146px;
+    justify-content: flex-end;
+
+    .square-header-container {
+      h2 {
+        font-size: 16px;
+      }
+    }
+
+    .square-subheader-container {
+      display: none;
+
+      h2 {
+        font-size: 20px;
+      }
+    }
   }
 }
