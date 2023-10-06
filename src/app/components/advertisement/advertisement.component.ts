@@ -35,12 +35,6 @@ export class AdvertisementComponent implements OnInit{
         }
       );
 
-      newsData.subscribe(
-        (error) => {
-          console.error('Error loading ads:', error);
-        }
-      );
-
     } catch (error) {
       console.error('Error loading ads:', error);
     }

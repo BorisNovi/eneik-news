@@ -16,6 +16,9 @@ export class NewsComponent implements OnInit {
   week: string;
   isLoading: boolean;
   currentPage: number;
+  adv_chance: number = 20; // Шанс появления рекламы. Влияет на всю на странице.
+  resolved: boolean = false;
+
   constructor(private route: ActivatedRoute, private newsService: NewsService) { }
 
   async ngOnInit(): Promise<void> {
@@ -25,7 +28,14 @@ export class NewsComponent implements OnInit {
     this.loadNews();
   }
 
+  resolver(chance: number = 0): void {
+    const random_100 = +(Math.random() * 100).toFixed();
+    this.resolved = random_100 <= chance ? true : false;
+  }
+
   async loadNews(page: number = 1): Promise<void> {
+    this.resolver();
+
     try {
       this.isLoading = true;
       const newsData = await this.newsService.getNews(7, (page - 1) * 7);
@@ -41,12 +51,9 @@ export class NewsComponent implements OnInit {
           }
           this.isLoading = false;
           this.currentPage = page + 1;
-        },
-        (error) => {
-          this.isLoading = false;
-          console.error('Error loading news:', error);
         }
       );
+
     } catch (error) {
       this.isLoading = false;
       console.error('Error loading news:', error);

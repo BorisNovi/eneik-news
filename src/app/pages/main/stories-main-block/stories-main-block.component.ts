@@ -25,12 +25,6 @@ export class StoriesMainBlockComponent implements OnInit {
         }
       );
 
-      storiesData.subscribe(
-        (error) => {
-          console.error('Error loading stories:', error);
-        }
-      );
-
     } catch (error) {
       console.error('Error loading stories:', error);
     }

@@ -21,7 +21,7 @@
         <app-square025 *ngIf="newsGroup[6]" [data]="newsGroup[6]"></app-square025>
       </div>
 
-      <div class="ads-container">
+      <div *ngIf="resolved" class="ads-container">
         <app-advertisement></app-advertisement>
       </div>
 

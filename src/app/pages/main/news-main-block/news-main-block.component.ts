@@ -51,12 +51,6 @@ export class NewsMainBlockComponent implements OnInit {
         }
       );
 
-      newsData.subscribe(
-        (error) => {
-          console.error('Error loading news:', error);
-        }
-      );
-
     } catch (error) {
       console.error('Error loading news:', error);
     }
