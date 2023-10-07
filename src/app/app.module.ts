@@ -19,6 +19,7 @@ import { ThingComponent } from './components/things/thing.component';
 import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
 import { ArtMainComponentComponent } from './pages/main/art-main-component/art-main-component.component';
+import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ArtMainComponentComponent } from './pages/main/art-main-component/art-m
     ArtComponent,
     TellComponent,
     ArtMainComponentComponent,
+    ArtsDetailComponent,
   ],
   imports: [
     BrowserModule,

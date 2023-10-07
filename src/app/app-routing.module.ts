@@ -8,6 +8,7 @@ import { StoriesDetailComponent } from './pages/stories-detail/stories-detail.co
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
+import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   // Добавляем динамический маршрут для новостей
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'stories/:id', component: StoriesDetailComponent},
+  { path: 'arts/:id', component: ArtsDetailComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
 ];
