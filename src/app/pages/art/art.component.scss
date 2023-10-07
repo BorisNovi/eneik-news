@@ -1,0 +1,109 @@
+
+.arts-container {
+  max-width: 1240px;
+  margin: 5rem auto 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+
+  .heading-container {
+    padding: 0 4rem;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+
+    .arts-header {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .last-week-container {
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+
+      .squares-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .squares-container-inner {
+          max-width: 610px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 1rem;
+        }
+      }
+    }
+
+    .ads-container {
+      display: flex;
+      justify-content: center;
+      margin: 6rem 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1236px) {
+  .arts-container {
+    .content-container {
+      .last-week-container {
+        .squares-container {
+          max-width: 610px;
+          align-self: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .arts-container {
+    .content-container {
+      .last-week-container {
+        .squares-container {
+          justify-content: center;
+          max-width: 510px;
+          align-self: center;
+
+          .squares-container-inner {
+            justify-content: center;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .arts-container {
+    .content-container {
+      .last-week-container {
+        .squares-container {
+          justify-content: center;
+          max-width: 510px;
+          align-self: center;
+          gap: .5rem;
+
+          .squares-container-inner {
+            justify-content: center;
+            gap: .5rem;
+          }
+        }
+      }
+    }
+  }
+}
