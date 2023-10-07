@@ -15,7 +15,7 @@ import { StoriesMainBlockComponent } from './pages/main/stories-main-block/stori
 import { StoriesDetailComponent } from '../app/pages/stories-detail/stories-detail.component';
 import { StoriesComponent } from './pages/stories/stories.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AdvertisementComponent } from './components/advertisement/advertisement.component';
+import { ThingComponent } from './components/things/thing.component';
 import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
 
@@ -33,7 +33,7 @@ import { TellComponent } from './pages/tell/tell.component';
     StoriesDetailComponent,
     StoriesComponent,
     NotFoundComponent,
-    AdvertisementComponent,
+    ThingComponent,
     ArtComponent,
     TellComponent,
   ],

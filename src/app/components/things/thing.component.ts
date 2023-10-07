@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
-import { singleAd } from 'src/app/interfaces/ads-interface';
+import { singleThing } from 'src/app/interfaces/things-interface';
 
 @Component({
-  selector: 'app-advertisement',
-  templateUrl: './advertisement.component.html',
-  styleUrls: ['./advertisement.component.scss']
+  selector: 'app-thing',
+  templateUrl: './thing.component.html',
+  styleUrls: ['./thing.component.scss']
 })
-export class AdvertisementComponent implements OnInit{
-  adsList: singleAd[] = [];
+export class ThingComponent implements OnInit{
+  adsList: singleThing[] = [];
   header: string = ' ';
   id: number = 0;
   main_image: string = ' ';
@@ -17,14 +17,14 @@ export class AdvertisementComponent implements OnInit{
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
-    this.loadAds();
+    this.loadThings();
   }
 
-  async loadAds() {
+  async loadThings() {
     try {
       const newsData = await this.newsService.getAds(4, 0);
       newsData.subscribe(
-        (newsData: singleAd[]) => {
+        (newsData: singleThing[]) => {
           this.adsList = newsData;
 
           // Временно. Потом нужно будет делать проход циклом

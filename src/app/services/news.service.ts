@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
 import { singleNew } from '../interfaces/news-interface';
 import { singleStory } from '../interfaces/stories-interface'
-import { singleAd } from '../interfaces/ads-interface';
+import { singleThing } from '../interfaces/things-interface';
 import { AuthService } from './auth.service';
 
 // TODO: разнести запросы по отдельным сервисам
@@ -77,22 +77,22 @@ export class NewsService{
     return this.http.get<singleNew>(url, { headers });
   }
 
-  async getAds(limit: number = 20, offset: number = 0): Promise<Observable<singleAd[]>> {
+  async getAds(limit: number = 20, offset: number = 0): Promise<Observable<singleThing[]>> {
     const url = `${this.baseUrl}/api/v1/advertisments/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    return this.http.get<singleAd[]>(url, { headers });
+    return this.http.get<singleThing[]>(url, { headers });
   }
 
-  async getAdsById(id: number): Promise<Observable<singleAd>> {
+  async getAdsById(id: number): Promise<Observable<singleThing>> {
     const url = `${this.baseUrl}/api/v1/advertisments/${id}`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    return this.http.get<singleAd>(url, { headers });
+    return this.http.get<singleThing>(url, { headers });
   }
 }
 
