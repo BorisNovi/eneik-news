@@ -16,6 +16,8 @@ import { StoriesDetailComponent } from '../app/pages/stories-detail/stories-deta
 import { StoriesComponent } from './pages/stories/stories.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AdvertisementComponent } from './components/advertisement/advertisement.component';
+import { ArtComponent } from './pages/art/art.component';
+import { TellComponent } from './pages/tell/tell.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { AdvertisementComponent } from './components/advertisement/advertisement
     StoriesComponent,
     NotFoundComponent,
     AdvertisementComponent,
+    ArtComponent,
+    TellComponent,
   ],
   imports: [
     BrowserModule,

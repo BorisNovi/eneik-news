@@ -6,11 +6,15 @@ import { StoriesComponent } from './pages/stories/stories.component';
 import { NewsDetailComponent } from './pages/news-detail/news-detail.component';
 import { StoriesDetailComponent } from './pages/stories-detail/stories-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ArtComponent } from './pages/art/art.component';
+import { TellComponent } from './pages/tell/tell.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'news', component: NewsComponent },
   { path: 'stories', component: StoriesComponent },
+  { path: 'art', component: ArtComponent },
+  { path: 'tell', component: TellComponent },
   // Добавляем динамический маршрут для новостей
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'stories/:id', component: StoriesDetailComponent},
