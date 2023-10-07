@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'news', component: NewsComponent },
   { path: 'stories', component: StoriesComponent },
-  { path: 'art', component: ArtComponent },
+  { path: 'arts', component: ArtComponent },
   { path: 'tell', component: TellComponent },
   // Добавляем динамический маршрут для новостей
   { path: 'news/:id', component: NewsDetailComponent },

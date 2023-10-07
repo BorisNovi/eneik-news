@@ -18,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ThingComponent } from './components/things/thing.component';
 import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
+import { ArtMainComponentComponent } from './pages/main/art-main-component/art-main-component.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TellComponent } from './pages/tell/tell.component';
     ThingComponent,
     ArtComponent,
     TellComponent,
+    ArtMainComponentComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+<div class="main-arts-container">
+  <div class="heading-container">
+    <h1 class="main-header">АРТ КОЛЛЕКЦИЯ</h1>
+
+  </div>
+  <div class="additional-container">
+    <app-square05 *ngIf="artsList[0]" [data]="artsList[0]"></app-square05>
+    <app-square05 *ngIf="artsList[1]" [data]="artsList[1]"></app-square05>
+    <div class="squares-container-inner">
+      <app-square025 *ngIf="artsList[2]" [data]="artsList[2]"></app-square025>
+      <app-square025 *ngIf="artsList[3]" [data]="artsList[3]"></app-square025>
+      <app-square025 *ngIf="artsList[4]" [data]="artsList[4]"></app-square025>
+      <app-square025 *ngIf="artsList[5]" [data]="artsList[5]"></app-square025>
+    </div>
+    <app-square1 *ngIf="artsList[6]" [data]="artsList[6]"></app-square1>
+  </div>
+  <div class="read-more-pseudobutton">
+    <a routerLink="/arts">ещё</a>
+  </div>
+</div>
