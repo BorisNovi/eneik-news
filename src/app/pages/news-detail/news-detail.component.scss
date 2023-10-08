@@ -120,12 +120,12 @@
   }
 }
 
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+}
 
 @media screen and (max-width: 768px) {
   .container {
     .new-container {
-
       .new-heading {
         min-height: 60rem;
 
@@ -157,7 +157,6 @@
 @media screen and (max-width: 425px) {
   .container {
     .new-container {
-
       .new-heading {
         min-height: 55rem;
 

@@ -41,12 +41,8 @@ import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
     ArtMainComponentComponent,
     ArtsDetailComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

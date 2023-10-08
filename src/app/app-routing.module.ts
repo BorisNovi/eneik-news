@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'tell', component: TellComponent },
   // Добавляем динамический маршрут для новостей
   { path: 'news/:id', component: NewsDetailComponent },
-  { path: 'stories/:id', component: StoriesDetailComponent},
+  { path: 'stories/:id', component: StoriesDetailComponent },
   { path: 'arts/:id', component: ArtsDetailComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },
@@ -26,8 +26,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
-
+export class AppRoutingModule {}

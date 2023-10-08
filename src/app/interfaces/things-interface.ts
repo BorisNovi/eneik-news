@@ -1,6 +1,6 @@
 export interface singleThing {
-  id: number,
-  header: string,
-  main_image: string,
-  url: string,
+  id: number;
+  header: string;
+  main_image: string;
+  url: string;
 }

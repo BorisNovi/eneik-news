@@ -7,7 +7,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-stories-detail',
   templateUrl: './stories-detail.component.html',
-  styleUrls: ['./stories-detail.component.scss']
+  styleUrls: ['./stories-detail.component.scss'],
 })
 export class StoriesDetailComponent implements OnInit {
   single_story: singleStory;
@@ -28,7 +28,11 @@ export class StoriesDetailComponent implements OnInit {
   image_0_0: string; // Если будешь делать карусель, то убери это
   image_1_0: string; // Если будешь делать карусель, то убери это
 
-  constructor(private route: ActivatedRoute, private newsService: NewsService, private sanitizer: DomSanitizer) { }
+  constructor(
+    private route: ActivatedRoute,
+    private newsService: NewsService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   async ngOnInit(): Promise<void> {
     const storiesId = this.route.snapshot.params['id'].slice(3);
@@ -43,9 +47,15 @@ export class StoriesDetailComponent implements OnInit {
       this.images_0 = [data.image_1, data.image_2];
       this.images_1 = [data.image_3, data.image_4];
       this.main_image = data.main_image;
-      this.main_text = data.main_text.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
-      this.sub_text_0 = data.sub_text_0.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
-      this.sub_text_1 = data.sub_text_1.replace(/\r\n/g, '<br>').replace(/\r/g, '<br>');
+      this.main_text = data.main_text
+        .replace(/\r\n/g, '<br>')
+        .replace(/\r/g, '<br>');
+      this.sub_text_0 = data.sub_text_0
+        .replace(/\r\n/g, '<br>')
+        .replace(/\r/g, '<br>');
+      this.sub_text_1 = data.sub_text_1
+        .replace(/\r\n/g, '<br>')
+        .replace(/\r/g, '<br>');
       this.subheader = data.subheader;
       const data_video = data ? data.video : ' ';
       this.video = this.sanitizer.bypassSecurityTrustResourceUrl(data_video);

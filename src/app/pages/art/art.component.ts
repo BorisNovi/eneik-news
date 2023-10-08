@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit  } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../services/news.service';
 import { singleArt } from 'src/app/interfaces/arts-interface';
@@ -6,7 +6,7 @@ import { singleArt } from 'src/app/interfaces/arts-interface';
 @Component({
   selector: 'app-art',
   templateUrl: './art.component.html',
-  styleUrls: ['./art.component.scss']
+  styleUrls: ['./art.component.scss'],
 })
 
 // Это временная версия. В следующем изменении будет сделана как на макете.
@@ -15,10 +15,13 @@ export class ArtComponent implements OnInit {
   week: string;
   isLoading: boolean;
   currentPage: number;
-  adv_chance: number = 20; // Шанс появления рекламы. Влияет на всю на странице.
-  resolved: boolean = false;
+  adv_chance = 20; // Шанс появления рекламы. Влияет на всю на странице.
+  resolved = false;
 
-  constructor(private route: ActivatedRoute, private newsService: NewsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private newsService: NewsService
+  ) {}
 
   async ngOnInit(): Promise<void> {
     this.isLoading = false;
@@ -27,32 +30,29 @@ export class ArtComponent implements OnInit {
     this.loadarts();
   }
 
-  resolver(chance: number = 0): void {
+  resolver(chance = 0): void {
     const random_100 = +(Math.random() * 100).toFixed();
     this.resolved = random_100 <= chance ? true : false;
   }
 
-  async loadarts(page: number = 1): Promise<void> {
+  async loadarts(page = 1): Promise<void> {
     this.resolver(this.adv_chance);
 
     try {
       this.isLoading = true;
       const newsData = await this.newsService.getArts(7, (page - 1) * 7);
-      newsData.subscribe(
-        (newsData: singleArt[]) => {
-          const mappedData = newsData.map((newsItem) => ({
-            ...newsItem
-          }));
-          if (page === 1) {
-            this.artsGroups = [mappedData]; // Создаем первую группу новостей
-          } else {
-            this.artsGroups.push(mappedData); // Добавляем новую группу к массиву
-          }
-          this.isLoading = false;
-          this.currentPage = page + 1;
+      newsData.subscribe((newsData: singleArt[]) => {
+        const mappedData = newsData.map(newsItem => ({
+          ...newsItem,
+        }));
+        if (page === 1) {
+          this.artsGroups = [mappedData]; // Создаем первую группу новостей
+        } else {
+          this.artsGroups.push(mappedData); // Добавляем новую группу к массиву
         }
-      );
-
+        this.isLoading = false;
+        this.currentPage = page + 1;
+      });
     } catch (error) {
       this.isLoading = false;
       console.error('Error loading arts:', error);
@@ -60,7 +60,7 @@ export class ArtComponent implements OnInit {
   }
 
   private scrollTimeout: any;
-  private prevScrollPosition: number = 0; // Переменная для хранения предыдущей позиции скролла
+  private prevScrollPosition = 0; // Переменная для хранения предыдущей позиции скролла
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {

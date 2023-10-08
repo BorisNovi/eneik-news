@@ -66,12 +66,12 @@
     }
 
     .mail-button :active {
-      transform: scale(.98);
+      transform: scale(0.98);
     }
   }
 }
 
-@media (hover :hover) {
+@media (hover: hover) {
   .mail-button :hover {
     transform: scale(1.03);
   }

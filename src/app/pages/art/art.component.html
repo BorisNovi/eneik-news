@@ -4,24 +4,34 @@
   </div>
 
   <div class="content-container">
-    <div *ngFor="let artsGroup of artsGroups; let i = index" class="last-week-container">
+    <div
+      *ngFor="let artsGroup of artsGroups; let i = index"
+      class="last-week-container">
       <div class="squares-container">
         <app-square1 [data]="artsGroup[0]"></app-square1>
         <div class="squares-container-inner">
-          <app-square025 *ngIf="artsGroup[1]" [data]="artsGroup[1]"></app-square025>
-          <app-square025 *ngIf="artsGroup[2]" [data]="artsGroup[2]"></app-square025>
-          <app-square05 *ngIf="artsGroup[3]" [data]="artsGroup[3]"></app-square05>
+          <app-square025
+            *ngIf="artsGroup[1]"
+            [data]="artsGroup[1]"></app-square025>
+          <app-square025
+            *ngIf="artsGroup[2]"
+            [data]="artsGroup[2]"></app-square025>
+          <app-square05
+            *ngIf="artsGroup[3]"
+            [data]="artsGroup[3]"></app-square05>
         </div>
         <app-square05 *ngIf="artsGroup[4]" [data]="artsGroup[4]"></app-square05>
-        <app-square025 *ngIf="artsGroup[5]" [data]="artsGroup[5]"></app-square025>
-        <app-square025 *ngIf="artsGroup[6]" [data]="artsGroup[6]"></app-square025>
+        <app-square025
+          *ngIf="artsGroup[5]"
+          [data]="artsGroup[5]"></app-square025>
+        <app-square025
+          *ngIf="artsGroup[6]"
+          [data]="artsGroup[6]"></app-square025>
       </div>
       <div *ngIf="resolved" class="ads-container">
         <app-thing></app-thing>
       </div>
-
     </div>
     <div *ngIf="isLoading" class="loader">Loading...</div>
   </div>
-
 </div>

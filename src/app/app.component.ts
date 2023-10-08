@@ -1,16 +1,16 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  isMenuOpen: boolean = false;
-  isScrollLocked: boolean = false;
+  isMenuOpen = false;
+  isScrollLocked = false;
   title = 'eneik-news';
 
-  toggleMenu(close: number = 0) {
+  toggleMenu(close = 0) {
     this.isMenuOpen = !this.isMenuOpen;
     this.isScrollLocked = this.isMenuOpen;
 

@@ -1,4 +1,3 @@
-
 .arts-container {
   max-width: 1240px;
   margin: 5rem auto 0;
@@ -81,7 +80,6 @@
           .squares-container-inner {
             justify-content: center;
           }
-
         }
       }
     }
@@ -96,11 +94,11 @@
           justify-content: center;
           max-width: 510px;
           align-self: center;
-          gap: .5rem;
+          gap: 0.5rem;
 
           .squares-container-inner {
             justify-content: center;
-            gap: .5rem;
+            gap: 0.5rem;
           }
         }
       }

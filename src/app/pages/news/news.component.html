@@ -1,32 +1,44 @@
 <div class="news-container">
   <div class="heading-container">
     <h1 class="news-header">IT ЕЖЕНЕДЕЛЬНИК</h1>
-    <h5 class="news-subheader">Раз в неделю мы читаем новости IT сферы и делимся с вами самым интересным!</h5>
+    <h5 class="news-subheader">
+      Раз в неделю мы читаем новости IT сферы и делимся с вами самым интересным!
+    </h5>
   </div>
 
   <div class="content-container">
-    <div *ngFor="let newsGroup of newsGroups; let i = index" class="last-week-container">
+    <div
+      *ngFor="let newsGroup of newsGroups; let i = index"
+      class="last-week-container">
       <div class="week-days">
         <p>{{ getDates(i) }}</p>
       </div>
       <div class="squares-container">
         <app-square1 *ngIf="newsGroup[0]" [data]="newsGroup[0]"></app-square1>
         <div class="squares-container-inner">
-          <app-square025 *ngIf="newsGroup[1]" [data]="newsGroup[1]"></app-square025>
-          <app-square025 *ngIf="newsGroup[2]" [data]="newsGroup[2]"></app-square025>
-          <app-square05 *ngIf="newsGroup[3]" [data]="newsGroup[3]"></app-square05>
+          <app-square025
+            *ngIf="newsGroup[1]"
+            [data]="newsGroup[1]"></app-square025>
+          <app-square025
+            *ngIf="newsGroup[2]"
+            [data]="newsGroup[2]"></app-square025>
+          <app-square05
+            *ngIf="newsGroup[3]"
+            [data]="newsGroup[3]"></app-square05>
         </div>
         <app-square05 *ngIf="newsGroup[4]" [data]="newsGroup[4]"></app-square05>
-        <app-square025 *ngIf="newsGroup[5]" [data]="newsGroup[5]"></app-square025>
-        <app-square025 *ngIf="newsGroup[6]" [data]="newsGroup[6]"></app-square025>
+        <app-square025
+          *ngIf="newsGroup[5]"
+          [data]="newsGroup[5]"></app-square025>
+        <app-square025
+          *ngIf="newsGroup[6]"
+          [data]="newsGroup[6]"></app-square025>
       </div>
 
       <div *ngIf="resolved" class="ads-container">
         <app-thing></app-thing>
       </div>
-
     </div>
     <div *ngIf="isLoading" class="loader">Loading...</div>
   </div>
-
 </div>

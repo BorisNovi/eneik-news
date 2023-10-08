@@ -2,19 +2,37 @@
   <div class="header-container">
     <div class="header-logo">
       <a class="header-logo-link" routerLink="/">
-        <img src="../assets/icons/logo.svg" alt="Logo" class="header-logo-img">
+        <img
+          src="../assets/icons/logo.svg"
+          alt="Logo"
+          class="header-logo-img" />
       </a>
     </div>
-    <nav class="header-links" [ngClass]="{'menu-open': isMenuOpen}">
+    <nav class="header-links" [ngClass]="{ 'menu-open': isMenuOpen }">
       <div class="links-container-1">
         <div class="news-link-container">
-          <a routerLink="/news" class="header-link header-link-news" (click)="toggleMenu(1)">новости</a>
+          <a
+            routerLink="/news"
+            class="header-link header-link-news"
+            (click)="toggleMenu(1)"
+            >новости</a
+          >
         </div>
         <div class="news-link-container">
-          <a routerLink="/stories" class="header-link header-link-stories" (click)="toggleMenu(1)">истории</a>
+          <a
+            routerLink="/stories"
+            class="header-link header-link-stories"
+            (click)="toggleMenu(1)"
+            >истории</a
+          >
         </div>
         <div class="news-link-container">
-          <a routerLink="/arts" class="header-link header-link-art" (click)="toggleMenu(1)">арт</a>
+          <a
+            routerLink="/arts"
+            class="header-link header-link-art"
+            (click)="toggleMenu(1)"
+            >арт</a
+          >
         </div>
       </div>
       <div class="links-container-2">
@@ -22,45 +40,71 @@
           <a routerLink="/events" class="header-link header-link-events" (click)="toggleMenu(1)">объявления</a>
         </div> -->
         <div class="news-link-container">
-          <a routerLink="/tell" class="header-link header-link-tell" (click)="toggleMenu(1)">рассказать историю</a>
+          <a
+            routerLink="/tell"
+            class="header-link header-link-tell"
+            (click)="toggleMenu(1)"
+            >рассказать историю</a
+          >
         </div>
       </div>
       <div class="social-media-links__burger">
         <div class="social-media-link-container">
-          <a class="social-media-link" href="https://t.me/eneik_group" target="_blank">
-            <img src="../assets/icons/tg-icon.svg" alt="Telegram">
+          <a
+            class="social-media-link"
+            href="https://t.me/eneik_group"
+            target="_blank">
+            <img src="../assets/icons/tg-icon.svg" alt="Telegram" />
           </a>
         </div>
         <div class="social-media-link-container">
-          <a class="social-media-link" href="https://www.instagram.com/eneik.coworking" target="_blank">
-            <img src="../assets/icons/inst-icon.svg" alt="Instagram">
+          <a
+            class="social-media-link"
+            href="https://www.instagram.com/eneik.coworking"
+            target="_blank">
+            <img src="../assets/icons/inst-icon.svg" alt="Instagram" />
           </a>
         </div>
         <div class="social-media-link-container">
-          <a class="social-media-link" href="https://www.youtube.com/@Eneik_Coworking" target="_blank">
-            <img src="../assets/icons/utb-icon.svg" alt="Youtube">
+          <a
+            class="social-media-link"
+            href="https://www.youtube.com/@Eneik_Coworking"
+            target="_blank">
+            <img src="../assets/icons/utb-icon.svg" alt="Youtube" />
           </a>
         </div>
       </div>
     </nav>
     <div class="social-media-links">
       <div class="social-media-link-container">
-        <a class="social-media-link" href="https://t.me/eneik_group" target="_blank">
-          <img src="../assets/icons/tg-icon.svg" alt="Telegram">
+        <a
+          class="social-media-link"
+          href="https://t.me/eneik_group"
+          target="_blank">
+          <img src="../assets/icons/tg-icon.svg" alt="Telegram" />
         </a>
       </div>
       <div class="social-media-link-container">
-        <a class="social-media-link" href="https://www.instagram.com/eneik.coworking" target="_blank">
-          <img src="../assets/icons/inst-icon.svg" alt="Instagram">
+        <a
+          class="social-media-link"
+          href="https://www.instagram.com/eneik.coworking"
+          target="_blank">
+          <img src="../assets/icons/inst-icon.svg" alt="Instagram" />
         </a>
       </div>
       <div class="social-media-link-container">
-        <a class="social-media-link" href="https://www.youtube.com/@Eneik_Coworking" target="_blank">
-          <img src="../assets/icons/utb-icon.svg" alt="Youtube">
+        <a
+          class="social-media-link"
+          href="https://www.youtube.com/@Eneik_Coworking"
+          target="_blank">
+          <img src="../assets/icons/utb-icon.svg" alt="Youtube" />
         </a>
       </div>
     </div>
-    <div class="burger-icon" (click)="toggleMenu()" [ngClass]="{'burger-icon--active': isMenuOpen}">
+    <div
+      class="burger-icon"
+      (click)="toggleMenu()"
+      [ngClass]="{ 'burger-icon--active': isMenuOpen }">
       <span class="burger-icon__line"></span>
       <span class="burger-icon__line"></span>
       <span class="burger-icon__line"></span>
@@ -73,50 +117,75 @@
     <div class="footer-links-1">
       <div class="footer-logo">
         <a routerLink="/" class="footer-logo-link">
-          <img src="../assets/icons/logo-footer.svg" alt="Logo" class="footer-logo-img">
+          <img
+            src="../assets/icons/logo-footer.svg"
+            alt="Logo"
+            class="footer-logo-img" />
         </a>
       </div>
     </div>
     <div class="footer-links-2">
       <div class="abotut">
-        <a routerLink="/about" class="footer-link footer-link-about">О ПРОЕКТЕ</a>
+        <a routerLink="/about" class="footer-link footer-link-about"
+          >О ПРОЕКТЕ</a
+        >
       </div>
       <div class="news-link-container">
         <a routerLink="/news" class="footer-link footer-link-news">НОВОСТИ</a>
       </div>
       <div class="news-link-container">
-        <a routerLink="/stories" class="footer-link footer-link-stories">ИСТОРИИ</a>
+        <a routerLink="/stories" class="footer-link footer-link-stories"
+          >ИСТОРИИ</a
+        >
       </div>
     </div>
     <div class="footer-links-3">
       <div class="news-link-container">
-        <a routerLink="/arts" class="footer-link footer-link-art">АРТ КОЛЛЕКЦИЯ</a>
+        <a routerLink="/arts" class="footer-link footer-link-art"
+          >АРТ КОЛЛЕКЦИЯ</a
+        >
       </div>
       <!-- <div class="news-link-container">
         <a routerLink="/events" class="footer-link footer-link-events">ОБЯВЛЕНИЯ</a>
       </div> -->
       <div class="news-link-container">
-        <a routerLink="/tell" class="footer-link footer-link-tell">РАССКАЗАТЬ ИСТОРИЮ</a>
+        <a routerLink="/tell" class="footer-link footer-link-tell"
+          >РАССКАЗАТЬ ИСТОРИЮ</a
+        >
       </div>
     </div>
     <div class="footer-links-4">
       <div class="news-link-container">
-        <a href="https://eneik.ge/" target="_blank" class="footer-link footer-link-privacy">Eneik Covorking</a>
+        <a
+          href="https://eneik.ge/"
+          target="_blank"
+          class="footer-link footer-link-privacy"
+          >Eneik Covorking</a
+        >
       </div>
       <div class="social-media-links">
         <div class="social-media-link-container">
-          <a class="social-media-link" href="https://t.me/eneik_group" target="_blank">
-            <img src="../assets/icons/tg-icon.svg" alt="Telegram">
+          <a
+            class="social-media-link"
+            href="https://t.me/eneik_group"
+            target="_blank">
+            <img src="../assets/icons/tg-icon.svg" alt="Telegram" />
           </a>
         </div>
         <div class="social-media-link-container">
-          <a class="social-media-link" href="https://www.instagram.com/eneik.coworking" target="_blank">
-            <img src="../assets/icons/inst-icon.svg" alt="Instagram">
+          <a
+            class="social-media-link"
+            href="https://www.instagram.com/eneik.coworking"
+            target="_blank">
+            <img src="../assets/icons/inst-icon.svg" alt="Instagram" />
           </a>
         </div>
         <div class="social-media-link-container">
-          <a class="social-media-link" href="https://www.youtube.com/@Eneik_Coworking" target="_blank">
-            <img src="../assets/icons/utb-icon.svg" alt="Youtube">
+          <a
+            class="social-media-link"
+            href="https://www.youtube.com/@Eneik_Coworking"
+            target="_blank">
+            <img src="../assets/icons/utb-icon.svg" alt="Youtube" />
           </a>
         </div>
       </div>

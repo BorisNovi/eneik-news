@@ -3,12 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-tell',
   templateUrl: './tell.component.html',
-  styleUrls: ['./tell.component.scss']
+  styleUrls: ['./tell.component.scss'],
 })
 export class TellComponent {
-
-  mail: string = "eneik.group@gmail.com";
-  copy_hint: boolean = false;
+  mail = 'eneik.group@gmail.com';
+  copy_hint = false;
 
   copy() {
     const textArea = document.createElement('textarea');
@@ -20,7 +19,7 @@ export class TellComponent {
     try {
       document.execCommand('copy');
       this.copy_hint = true;
-      setTimeout(() => this.copy_hint = false, 2000);
+      setTimeout(() => (this.copy_hint = false), 2000);
     } catch (err) {
       console.error('Не удалось скопировать почту в буфер обмена', err);
     }

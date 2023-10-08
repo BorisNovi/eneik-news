@@ -4,7 +4,7 @@ import { singleNew } from 'src/app/interfaces/news-interface';
 @Component({
   selector: 'app-square025',
   templateUrl: './square025.component.html',
-  styleUrls: ['./square025.component.scss']
+  styleUrls: ['./square025.component.scss'],
 })
 export class Square025Component implements OnInit {
   @Input() data: singleNew; // Объявление входного свойства для передачи данных
@@ -14,8 +14,7 @@ export class Square025Component implements OnInit {
   id: number;
   main_image: string;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.category = this.data ? this.data.category : ' ';

@@ -3,10 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-export class AuthService{
+export class AuthService {
   private baseUrl = 'http://194.67.111.147:8000'; // https://eneik-media.com
 
   constructor(private http: HttpClient) {}
@@ -23,7 +22,9 @@ export class AuthService{
     };
 
     try {
-      const response = await firstValueFrom(this.http.post<any>(url, body, { headers }));
+      const response = await firstValueFrom(
+        this.http.post<any>(url, body, { headers })
+      );
       return response?.access;
     } catch (error) {
       console.error('Error getting token:', error);
@@ -39,11 +40,13 @@ export class AuthService{
     });
 
     const body = {
-      token
+      token,
     };
 
     try {
-      const response = await firstValueFrom(this.http.post<any>(url, body, { headers }));
+      const response = await firstValueFrom(
+        this.http.post<any>(url, body, { headers })
+      );
       return response;
     } catch (error) {
       console.error('Error getting token:', error);
@@ -51,4 +54,3 @@ export class AuthService{
     }
   }
 }
-

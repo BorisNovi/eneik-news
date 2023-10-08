@@ -6,20 +6,20 @@ import { singleNew } from 'src/app/interfaces/news-interface';
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.scss']
+  styleUrls: ['./news.component.scss'],
 })
-
-
-
 export class NewsComponent implements OnInit {
   newsGroups: singleNew[][] = [];
   week: string;
   isLoading: boolean;
   currentPage: number;
-  adv_chance: number = 20; // Шанс появления рекламы. Влияет на всю на странице.
-  resolved: boolean = false;
+  adv_chance = 20; // Шанс появления рекламы. Влияет на всю на странице.
+  resolved = false;
 
-  constructor(private route: ActivatedRoute, private newsService: NewsService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private newsService: NewsService
+  ) {}
 
   async ngOnInit(): Promise<void> {
     this.isLoading = false;
@@ -28,32 +28,29 @@ export class NewsComponent implements OnInit {
     this.loadNews();
   }
 
-  resolver(chance: number = 0): void {
+  resolver(chance = 0): void {
     const random_100 = +(Math.random() * 100).toFixed();
     this.resolved = random_100 <= chance ? true : false;
   }
 
-  async loadNews(page: number = 1): Promise<void> {
+  async loadNews(page = 1): Promise<void> {
     this.resolver();
 
     try {
       this.isLoading = true;
       const newsData = await this.newsService.getNews(7, (page - 1) * 7);
-      newsData.subscribe(
-        (newsData: singleNew[]) => {
-          const mappedData = newsData.map((newsItem) => ({
-            ...newsItem
-          }));
-          if (page === 1) {
-            this.newsGroups = [mappedData]; // Создаем первую группу новостей
-          } else {
-            this.newsGroups.push(mappedData); // Добавляем новую группу к массиву
-          }
-          this.isLoading = false;
-          this.currentPage = page + 1;
+      newsData.subscribe((newsData: singleNew[]) => {
+        const mappedData = newsData.map(newsItem => ({
+          ...newsItem,
+        }));
+        if (page === 1) {
+          this.newsGroups = [mappedData]; // Создаем первую группу новостей
+        } else {
+          this.newsGroups.push(mappedData); // Добавляем новую группу к массиву
         }
-      );
-
+        this.isLoading = false;
+        this.currentPage = page + 1;
+      });
     } catch (error) {
       this.isLoading = false;
       console.error('Error loading news:', error);
@@ -77,9 +74,8 @@ export class NewsComponent implements OnInit {
     return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
   }
 
-
   private scrollTimeout: any;
-  private prevScrollPosition: number = 0; // Переменная для хранения предыдущей позиции скролла
+  private prevScrollPosition = 0; // Переменная для хранения предыдущей позиции скролла
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {
@@ -113,6 +109,4 @@ export class NewsComponent implements OnInit {
       }, 500);
     }
   }
-
-
 }

@@ -2,17 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
 import { singleNew } from '../interfaces/news-interface';
-import { singleStory } from '../interfaces/stories-interface'
+import { singleStory } from '../interfaces/stories-interface';
 import { singleThing } from '../interfaces/things-interface';
 import { AuthService } from './auth.service';
 
 // TODO: разнести запросы по отдельным сервисам
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-
-export class NewsService{
+export class NewsService {
   private baseUrl = 'http://194.67.111.147:8000'; // https://eneikapi.onrender.com
   auth: Promise<string | null>;
 
@@ -20,7 +18,7 @@ export class NewsService{
     this.auth = new AuthService(http).verifyToken();
   }
 
-  async getNews(limit: number = 20, offset: number = 0): Promise<Observable<any[]>> {
+  async getNews(limit = 20, offset = 0): Promise<Observable<any[]>> {
     const url = `${this.baseUrl}/api/v1/news/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
@@ -39,8 +37,7 @@ export class NewsService{
     return this.http.get<singleNew>(url, { headers });
   }
 
-
-  async getStories(limit: number = 20, offset:number = 0): Promise<Observable<any[]>> {
+  async getStories(limit = 20, offset = 0): Promise<Observable<any[]>> {
     const url = `${this.baseUrl}/api/v1/stories/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
@@ -58,9 +55,8 @@ export class NewsService{
     return this.http.get<singleStory>(url, { headers });
   }
 
-  async getArts(limit: number = 20, offset:number = 0): Promise<Observable<any[]>> {
+  async getArts(limit = 20, offset = 0): Promise<Observable<any[]>> {
     const url = `${this.baseUrl}/api/v1/arts/?count=${limit}&start=${offset}`;
-
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -77,7 +73,7 @@ export class NewsService{
     return this.http.get<singleNew>(url, { headers });
   }
 
-  async getAds(limit: number = 20, offset: number = 0): Promise<Observable<singleThing[]>> {
+  async getAds(limit = 20, offset = 0): Promise<Observable<singleThing[]>> {
     const url = `${this.baseUrl}/api/v1/advertisments/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
@@ -95,4 +91,3 @@ export class NewsService{
     return this.http.get<singleThing>(url, { headers });
   }
 }
-
