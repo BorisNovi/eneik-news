@@ -25,4 +25,10 @@ export class AppComponent {
       document.querySelector('body')!.style.overflow = '';
     }
   }
+
+  handleKeyPress(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.toggleMenu(1);
+    }
+  }
 }

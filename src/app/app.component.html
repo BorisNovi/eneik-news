@@ -104,6 +104,8 @@
     <div
       class="burger-icon"
       (click)="toggleMenu()"
+      (keydown)="handleKeyPress($event)"
+      tabindex="0"
       [ngClass]="{ 'burger-icon--active': isMenuOpen }">
       <span class="burger-icon__line"></span>
       <span class="burger-icon__line"></span>

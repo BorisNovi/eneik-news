@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://194.67.111.147:8000'; // https://eneik-media.com
+  private baseUrl = 'https://eneik-media.com'; // https://eneik-media.com
 
   constructor(private http: HttpClient) {}
 

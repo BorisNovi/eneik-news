@@ -15,8 +15,6 @@ export class Square05Component implements OnInit {
   main_image: string;
   main_text: string;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.category = this.data ? this.data.category : ' ';
     this.header = this.data ? this.data.header : ' ';

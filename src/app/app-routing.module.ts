@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
 import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
+import { NewsService } from './services/news.service';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'stories/:id', component: StoriesDetailComponent },
   { path: 'arts/:id', component: ArtsDetailComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

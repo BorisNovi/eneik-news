@@ -22,7 +22,7 @@ export class ThingComponent implements OnInit {
 
   async loadThings() {
     try {
-      const newsData = await this.newsService.getAds(4, 0);
+      const newsData = await this.newsService.getThings(4, 0);
       newsData.subscribe((newsData: singleThing[]) => {
         this.adsList = newsData;
 

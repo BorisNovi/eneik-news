@@ -57,7 +57,7 @@ export class StoriesComponent implements OnInit {
     }
   }
 
-  private scrollTimeout: any;
+  private scrollTimeout: number;
   private prevScrollPosition = 0; // Переменная для хранения предыдущей позиции скролла
 
   @HostListener('window:scroll', ['$event'])
@@ -71,7 +71,7 @@ export class StoriesComponent implements OnInit {
         clearTimeout(this.scrollTimeout);
       }
 
-      this.scrollTimeout = setTimeout(() => {
+      this.scrollTimeout = window.setTimeout(() => {
         const currentScrollPosition = window.scrollY;
 
         // Проверяем, что скролл двигается вниз

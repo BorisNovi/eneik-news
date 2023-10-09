@@ -14,8 +14,6 @@ export class Square025Component implements OnInit {
   id: number;
   main_image: string;
 
-  constructor() {}
-
   ngOnInit(): void {
     this.category = this.data ? this.data.category : ' ';
     this.header = this.data ? this.data.header : ' ';

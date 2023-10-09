@@ -59,11 +59,11 @@ export class ArtComponent implements OnInit {
     }
   }
 
-  private scrollTimeout: any;
+  private scrollTimeout: number;
   private prevScrollPosition = 0; // Переменная для хранения предыдущей позиции скролла
 
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
+  onScroll(): void {
     const scrollPosition = window.scrollY + window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
     const scrollPercentage = (scrollPosition / documentHeight) * 100;
@@ -73,7 +73,7 @@ export class ArtComponent implements OnInit {
         clearTimeout(this.scrollTimeout);
       }
 
-      this.scrollTimeout = setTimeout(() => {
+      this.scrollTimeout = window.setTimeout(() => {
         const currentScrollPosition = window.scrollY;
 
         // Проверяем, что скролл двигается вниз

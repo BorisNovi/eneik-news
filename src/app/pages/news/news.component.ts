@@ -74,7 +74,7 @@ export class NewsComponent implements OnInit {
     return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
   }
 
-  private scrollTimeout: any;
+  private scrollTimeout: number;
   private prevScrollPosition = 0; // Переменная для хранения предыдущей позиции скролла
 
   @HostListener('window:scroll', ['$event'])
@@ -88,7 +88,7 @@ export class NewsComponent implements OnInit {
         clearTimeout(this.scrollTimeout);
       }
 
-      this.scrollTimeout = setTimeout(() => {
+      this.scrollTimeout = window.setTimeout(() => {
         const currentScrollPosition = window.scrollY;
 
         // Проверяем, что скролл двигается вниз
