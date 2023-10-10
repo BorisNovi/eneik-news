@@ -33,7 +33,6 @@
     .image__next {
       display: none;
     }
-
   }
 
   .arrow__next {
@@ -45,17 +44,5 @@
     align-items: center;
     cursor: pointer;
     min-height: 20rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    // width: 610px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .container {
-    // width: 610px;
   }
 }

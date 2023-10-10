@@ -55,6 +55,14 @@
   }
 }
 
+@media (hover :hover) {
+  .read-more-pseudobutton a:hover{
+    font-weight: 600;
+    background-color: #fff !important;
+    color: #000;
+  }
+}
+
 @media screen and (max-width: 1236px) {
   .main-arts-container {
     padding: 0;

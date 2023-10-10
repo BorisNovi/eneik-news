@@ -137,6 +137,17 @@ header {
   }
 }
 
+@media (hover :hover) {
+  .header-link:hover,
+  .footer-link:hover {
+    color: rgb(100, 106, 255);
+  }
+  
+  .social-media-link:hover img {
+    transform: scale(1.1);
+  }
+}
+
 @media screen and (max-width: 1024px) {
   header {
     .header-container {

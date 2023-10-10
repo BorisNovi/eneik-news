@@ -97,6 +97,14 @@
   margin: 6rem 3rem;
 }
 
+@media (hover :hover) {
+  .read-more-pseudobutton a:hover{
+    font-weight: 600;
+    background-color: #fff !important;
+    color: #000;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .main-news-container {
     .heading-container {
