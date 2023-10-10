@@ -20,6 +20,7 @@ import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
 import { ArtMainComponentComponent } from './pages/main/art-main-component/art-main-component.component';
 import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
     TellComponent,
     ArtMainComponentComponent,
     ArtsDetailComponent,
+    SliderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

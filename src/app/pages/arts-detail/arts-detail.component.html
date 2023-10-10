@@ -32,13 +32,15 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
       <div class="art-image-0" *ngIf="images_0?.[0]">
-        <img [src]="image_0_0" alt="Image 0" />
+        <!-- <img [src]="image_0_0" alt="Image 0" /> -->
+        <app-slider *ngIf="images_0" [data]="images_0"></app-slider>
       </div>
       <div class="art-subtext-0">
         <p [innerHTML]="sub_text_0"></p>
       </div>
       <div class="art-image-1" *ngIf="images_1?.[0]">
-        <img [src]="image_1_0" alt="Image 1" />
+        <!-- <img [src]="image_1_0" alt="Image 1" /> -->
+        <app-slider *ngIf="images_1" [data]="images_1"></app-slider>
       </div>
       <div class="art-subtext-1">
         <p [innerHTML]="sub_text_1"></p>
