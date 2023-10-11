@@ -75,7 +75,7 @@ export class NewsService {
   }
 
   async getThings(limit = 20, offset = 0): Promise<Observable<singleThing[]>> {
-    const url = `${this.baseUrl}/api/v1/thing/?count=${limit}&start=${offset}`;
+    const url = `${this.baseUrl}/api/v1/things/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export class NewsService {
   }
 
   async getThingsById(id: number): Promise<Observable<singleThing>> {
-    const url = `${this.baseUrl}/api/v1/thing/${id}/`;
+    const url = `${this.baseUrl}/api/v1/things/${id}/`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

@@ -44,8 +44,8 @@ export class ArtsDetailComponent implements OnInit {
       this.date = data.date;
       this.header = data.header;
       this.id = data.id;
-      this.images_0 = [data.image_1, data.image_2];
-      this.images_1 = [data.image_3, data.image_4];
+      this.images_0 = [data.image_1, data.image_2, data.image_3, data.image_4];
+      this.images_1 = [data.image_5, data.image_6, data.image_7, data.image_8];
       this.main_image = data.main_image;
       this.main_text = data.main_text
         .replace(/\r\n/g, '<br>')
