@@ -8,12 +8,12 @@
     ">
     <div class="square-header-container">
       <h2 *ngIf="header">
-        {{ header | slice: 0 : 30 }}{{ header!.length > 30 ? '...' : '' }}
+        {{ header | slice: 0 : 40 }}{{ header!.length > 40 ? '...' : '' }}
       </h2>
     </div>
     <div class="square-subheader-container">
-      <h2 *ngIf="main_text">
-        {{ main_text | slice: 0 : 40 }}{{ main_text!.length > 40 ? '...' : '' }}
+      <h2 *ngIf="subheader">
+        {{ subheader | slice: 0 : 60 }}{{ subheader!.length > 60 ? '...' : '' }}
       </h2>
     </div>
   </div>

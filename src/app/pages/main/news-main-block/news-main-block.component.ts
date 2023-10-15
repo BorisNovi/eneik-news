@@ -12,7 +12,7 @@ export class NewsMainBlockComponent implements OnInit {
 
   new_1_id = 0;
   new_1_header = ' ';
-  new_1_main = ' ';
+  new_1_subheader = ' ';
 
   new_2_id = 0;
   new_2_header = ' ';
@@ -37,7 +37,7 @@ export class NewsMainBlockComponent implements OnInit {
 
         this.new_1_id = newsData[0] ? newsData[0].id : 0;
         this.new_1_header = newsData[0] ? newsData[0].header : ' ';
-        this.new_1_main = newsData[0] ? newsData[0].main_text : ' ';
+        this.new_1_subheader = newsData[0] ? newsData[0].subheader : ' ';
 
         this.new_2_id = newsData[1] ? newsData[1].id : 0;
         this.new_2_header = newsData[1] ? newsData[1].header : ' ';
