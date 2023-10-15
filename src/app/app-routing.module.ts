@@ -9,7 +9,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ArtComponent } from './pages/art/art.component';
 import { TellComponent } from './pages/tell/tell.component';
 import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
-import { NewsService } from './services/news.service';
+import { AdminMainPageComponent } from './admin/admin-main-page/admin-main-page.component';
+import { AdminAuthPageComponent } from './admin/admin-auth-page/admin-auth-page.component';
+import { adminAuthGuard } from './guards/admin-auth.guard';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -17,7 +19,12 @@ const routes: Routes = [
   { path: 'stories', component: StoriesComponent },
   { path: 'arts', component: ArtComponent },
   { path: 'tell', component: TellComponent },
-  // Добавляем динамический маршрут для новостей
+  {
+    path: 'admin',
+    component: AdminMainPageComponent,
+    canActivate: [adminAuthGuard],
+  },
+  { path: 'auth', component: AdminAuthPageComponent },
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'stories/:id', component: StoriesDetailComponent },
   { path: 'arts/:id', component: ArtsDetailComponent },

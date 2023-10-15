@@ -21,6 +21,8 @@ import { TellComponent } from './pages/tell/tell.component';
 import { ArtMainComponentComponent } from './pages/main/art-main-component/art-main-component.component';
 import { ArtsDetailComponent } from './pages/arts-detail/arts-detail.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { AdminAuthPageComponent } from './admin/admin-auth-page/admin-auth-page.component';
+import { AdminMainPageComponent } from './admin/admin-main-page/admin-main-page.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { SliderComponent } from './components/slider/slider.component';
     ArtMainComponentComponent,
     ArtsDetailComponent,
     SliderComponent,
+    AdminAuthPageComponent,
+    AdminMainPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

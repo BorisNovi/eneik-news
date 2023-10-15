@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { TokenResponse, TokenVerify } from '../interfaces/auth-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,30 +11,34 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  private async getToken(): Promise<string | null> {
+  public async getToken(
+    username: string,
+    password: string
+  ): Promise<TokenResponse | null> {
     const url = `${this.baseUrl}/api/token/`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
     const body = {
-      username: '',
-      password: '', // Если перестала раброать аутентификация, проверь, совпадает ли пароль
+      username,
+      password, // Если перестала раброать аутентификация, проверь, совпадает ли пароль
     };
 
     try {
       const response = await firstValueFrom(
-        this.http.post<any>(url, body, { headers })
+        this.http.post<TokenResponse>(url, body, { headers })
       );
-      return response?.access;
+      return response;
     } catch (error) {
       console.error('Error getting token:', error);
-      return null;
+      throw error;
     }
   }
 
-  public async verifyToken(): Promise<string | null> {
-    const token = await this.getToken();
+  public async verifyToken(
+    token: string | null | undefined
+  ): Promise<TokenVerify | null> {
     const url = `${this.baseUrl}/api/token/verify/`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -45,12 +50,12 @@ export class AuthService {
 
     try {
       const response = await firstValueFrom(
-        this.http.post<any>(url, body, { headers })
+        this.http.post<TokenVerify>(url, body, { headers })
       );
       return response;
     } catch (error) {
-      console.error('Error getting token:', error);
-      return null;
+      console.error('Error verify token:', error);
+      throw error;
     }
   }
 }
