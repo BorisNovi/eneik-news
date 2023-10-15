@@ -8,7 +8,7 @@
       *ngFor="let artsGroup of artsGroups; let i = index"
       class="last-week-container">
       <div class="squares-container">
-        <app-square1 [data]="artsGroup[0]"></app-square1>
+        <app-square1 *ngIf="artsGroup[0]" [data]="artsGroup[0]"></app-square1>
         <div class="squares-container-inner">
           <app-square025
             *ngIf="artsGroup[1]"

@@ -40,11 +40,25 @@ export class ArtComponent implements OnInit {
 
     try {
       this.isLoading = true;
-      const newsData = await this.newsService.getArts(7, (page - 1) * 7);
+      const newsData = await this.newsService.getArts(1, (page - 1) * 1);
       newsData.subscribe((newsData: singleArt[]) => {
-        const mappedData = newsData.map(newsItem => ({
-          ...newsItem,
-        }));
+        const mappedData: singleArt[] = [...newsData];
+        /*
+        Эта совершенно уасающая конструкция берет один объект арта,
+        удаляет из него заголовки и заменяет главное изображение на
+        изображения приходящие по ключам image_n.
+        И так i раз, запихивая каждый измененный объект в mappedData.
+       */
+        for (let i = 0; i <= 5; i++) {
+          const data = newsData.map(newsItem => ({
+            ...newsItem,
+            main_image: newsItem[`image_${i + 1}`],
+            header: '',
+            subheader: '',
+          }));
+          mappedData.push(...data);
+        }
+
         if (page === 1) {
           this.artsGroups = [mappedData]; // Создаем первую группу новостей
         } else {
