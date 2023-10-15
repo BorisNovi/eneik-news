@@ -13,9 +13,10 @@
   justify-content: flex-end;
   overflow: hidden;
   padding: 2rem;
-  background-size: cover; /* Задайте размер, который вам нужен */
   background-repeat: no-repeat;
   background-position: center;
+  transition: 1s all;
+  background-size: 105%;
 
   .square-header-container {
     h2 {
@@ -27,7 +28,7 @@
 
 @media (hover: hover) {
   .container:hover {
-    background-size: 105%;
+    background-size: 110%;
   }
 }
 

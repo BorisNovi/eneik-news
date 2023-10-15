@@ -163,6 +163,8 @@
     .new-container {
       .new-heading {
         min-height: 55rem;
+        background-size: 100%;
+        background-position: top;
 
         h2 {
           font-size: 26px;

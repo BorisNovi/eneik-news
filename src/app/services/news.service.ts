@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { singleNew } from '../interfaces/news-interface';
 import { singleStory } from '../interfaces/stories-interface';
 import { singleThing } from '../interfaces/things-interface';
-import { AuthService } from './auth.service';
 import { singleArt } from '../interfaces/arts-interface';
 
 // TODO: разнести запросы по отдельным сервисам
@@ -15,9 +14,7 @@ export class NewsService {
   private baseUrl = 'https://eneik-media.com'; // https://eneikapi.onrender.com
   auth: Promise<string | null>;
 
-  constructor(private http: HttpClient) {
-    this.auth = new AuthService(http).verifyToken();
-  }
+  constructor(private http: HttpClient) {}
 
   async getNews(limit = 20, offset = 0): Promise<Observable<singleNew[]>> {
     const url = `${this.baseUrl}/api/v1/news/?count=${limit}&start=${offset}`;

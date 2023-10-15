@@ -17,8 +17,8 @@ export class AuthService {
     });
 
     const body = {
-      username: 'root',
-      password: 'kutaisi2023', // Если перестала раброать аутентификация, проверь, совпадает ли пароль
+      username: '',
+      password: '', // Если перестала раброать аутентификация, проверь, совпадает ли пароль
     };
 
     try {

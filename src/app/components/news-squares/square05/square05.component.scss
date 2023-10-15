@@ -13,9 +13,10 @@
   justify-content: space-between;
   overflow: hidden;
   padding: 2rem;
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  transition: 1s all;
+  background-size: 105%;
 
   img {
     position: relative;
@@ -41,7 +42,7 @@
 
 @media (hover: hover) {
   .container:hover {
-    background-size: 105%;
+    background-size: 110%;
   }
 }
 
