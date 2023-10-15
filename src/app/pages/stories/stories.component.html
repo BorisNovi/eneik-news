@@ -8,7 +8,9 @@
       *ngFor="let storiesGroup of storiesGroups; let i = index"
       class="last-week-container">
       <div class="squares-container">
-        <app-square1 [data]="storiesGroup[0]"></app-square1>
+        <app-square1
+          *ngIf="storiesGroup[0]"
+          [data]="storiesGroup[0]"></app-square1>
         <div class="squares-container-inner">
           <app-square025
             *ngIf="storiesGroup[1]"
