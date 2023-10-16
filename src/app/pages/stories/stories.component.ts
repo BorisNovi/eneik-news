@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NewsService } from '../../services/news.service';
+import { StoriesService } from '../../services/stories.service';
 import { singleStory } from 'src/app/interfaces/stories-interface';
 
 @Component({
@@ -18,7 +18,7 @@ export class StoriesComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsService: NewsService
+    private storiesService: StoriesService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -38,7 +38,7 @@ export class StoriesComponent implements OnInit {
 
     try {
       this.isLoading = true;
-      const newsData = await this.newsService.getStories(7, (page - 1) * 7);
+      const newsData = await this.storiesService.getStories(7, (page - 1) * 7);
       newsData.subscribe((newsData: singleStory[]) => {
         const mappedData = newsData.map(newsItem => ({
           ...newsItem,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NewsService } from '../../services/news.service';
+import { StoriesService } from '../../services/stories.service';
 import { singleStory } from 'src/app/interfaces/stories-interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -30,14 +30,14 @@ export class StoriesDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsService: NewsService,
+    private storiesService: StoriesService,
     private sanitizer: DomSanitizer
   ) {}
 
   async ngOnInit(): Promise<void> {
     const storiesId = this.route.snapshot.params['id'].slice(3);
 
-    (await this.newsService.getStoriesById(storiesId)).subscribe(data => {
+    (await this.storiesService.getStoriesById(storiesId)).subscribe(data => {
       this.single_story = data;
       this.author = data.author;
       this.category = data.category;

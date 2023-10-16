@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { singleNew } from '../interfaces/news-interface';
+import { singleArt } from '../interfaces/arts-interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NewsService {
+export class ArtsService {
   private baseUrl = 'https://eneik-media.com'; // https://eneikapi.onrender.com
   constructor(private http: HttpClient) {}
 
-  async getNews(limit = 20, offset = 0): Promise<Observable<singleNew[]>> {
-    const url = `${this.baseUrl}/api/v1/news/?count=${limit}&start=${offset}`;
+  async getArts(limit = 20, offset = 0): Promise<Observable<singleArt[]>> {
+    const url = `${this.baseUrl}/api/v1/arts/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
-    return this.http.get<singleNew[]>(url, { headers });
+    return this.http.get<singleArt[]>(url, { headers });
   }
 
-  async getNewsById(id: number): Promise<Observable<singleNew>> {
-    const url = `${this.baseUrl}/api/v1/news/${id}/`;
+  async getArtsById(id: number): Promise<Observable<singleArt>> {
+    const url = `${this.baseUrl}/api/v1/arts/${id}/`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    return this.http.get<singleNew>(url, { headers });
+    return this.http.get<singleArt>(url, { headers });
   }
 }

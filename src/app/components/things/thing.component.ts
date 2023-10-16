@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../services/news.service';
+import { ThingsService } from '../../services/things.service';
 import { singleThing } from 'src/app/interfaces/things-interface';
 
 @Component({
@@ -14,7 +14,7 @@ export class ThingComponent implements OnInit {
   main_image = ' ';
   url = ' ';
 
-  constructor(private newsService: NewsService) {}
+  constructor(private thingsService: ThingsService) {}
 
   ngOnInit(): void {
     this.loadThings();
@@ -22,7 +22,7 @@ export class ThingComponent implements OnInit {
 
   async loadThings() {
     try {
-      const newsData = await this.newsService.getThings(4, 0);
+      const newsData = await this.thingsService.getThings(4, 0);
       newsData.subscribe((newsData: singleThing[]) => {
         this.adsList = newsData;
 

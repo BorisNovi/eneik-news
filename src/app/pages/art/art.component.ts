@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NewsService } from '../../services/news.service';
+import { ArtsService } from 'src/app/services/arts.service';
 import { singleArt } from 'src/app/interfaces/arts-interface';
 
 @Component({
@@ -20,7 +20,7 @@ export class ArtComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsService: NewsService
+    private artsService: ArtsService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -40,7 +40,7 @@ export class ArtComponent implements OnInit {
 
     try {
       this.isLoading = true;
-      const newsData = await this.newsService.getArts(1, (page - 1) * 1);
+      const newsData = await this.artsService.getArts(1, (page - 1) * 1);
       newsData.subscribe((newsData: singleArt[]) => {
         const mappedData: singleArt[] = [...newsData];
         /*

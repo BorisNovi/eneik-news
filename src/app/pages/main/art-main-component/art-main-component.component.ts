@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../../services/news.service';
+import { ArtsService } from 'src/app/services/arts.service';
 import { singleArt } from 'src/app/interfaces/arts-interface';
 
 @Component({
@@ -10,7 +10,7 @@ import { singleArt } from 'src/app/interfaces/arts-interface';
 export class ArtMainComponentComponent implements OnInit {
   artsList: singleArt[] = []; // Создаем массив для хранения новостей
 
-  constructor(private newsService: NewsService) {}
+  constructor(private artsService: ArtsService) {}
 
   ngOnInit(): void {
     this.loadarts();
@@ -18,7 +18,7 @@ export class ArtMainComponentComponent implements OnInit {
 
   async loadarts() {
     try {
-      const artsData = await this.newsService.getArts(7, 0);
+      const artsData = await this.artsService.getArts(7, 0);
       artsData.subscribe((artsData: singleArt[]) => {
         this.artsList = artsData;
         console.log(this.artsList);

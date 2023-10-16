@@ -1,2 +1,25 @@
-<p>admin-auth-page works!</p>
-<button (click)="login()">auth</button>
+<div class="container">
+  <h2 class="auth-header">Admin panel</h2>
+  <p class="auth-error">{{ authError }}</p>
+  <form class="auth-form" (ngSubmit)="login()">
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [placeholder]="usernamePlaceholder"
+      [(ngModel)]="username"
+      required />
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [placeholder]="passwordPlaceholder"
+      [(ngModel)]="password"
+      required />
+
+    <button type="submit">Login</button>
+  </form>
+</div>

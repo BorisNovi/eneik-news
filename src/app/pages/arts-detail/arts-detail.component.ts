@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NewsService } from '../../services/news.service';
+import { ArtsService } from 'src/app/services/arts.service';
 import { singleArt } from 'src/app/interfaces/arts-interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -30,14 +30,14 @@ export class ArtsDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private newsService: NewsService,
+    private artsService: ArtsService,
     private sanitizer: DomSanitizer
   ) {}
 
   async ngOnInit(): Promise<void> {
     const artsId = this.route.snapshot.params['id'].slice(3);
 
-    (await this.newsService.getArtsById(artsId)).subscribe(data => {
+    (await this.artsService.getArtsById(artsId)).subscribe(data => {
       this.single_art = data;
       this.author = data.author;
       this.category = data.category;

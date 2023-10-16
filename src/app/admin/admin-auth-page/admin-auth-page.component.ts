@@ -13,8 +13,13 @@ export class AdminAuthPageComponent {
     ? Boolean(sessionStorage.getItem('isAuthenticated'))
     : false;
 
+  username: string;
+  usernamePlaceholder = '';
+  password: string;
+  passwordPlaceholder = '';
   accesstoken: string | null | undefined;
   refreshToken: string | null | undefined;
+  authError: string;
 
   constructor(
     private router: Router,
@@ -26,7 +31,7 @@ export class AdminAuthPageComponent {
 
   async authentication() {
     await this.auth
-      .getToken('login', 'password')
+      .getToken(this.username, this.password)
       .then(data => {
         this.accesstoken = data?.access;
         this.refreshToken = data?.refresh;
@@ -61,7 +66,11 @@ export class AdminAuthPageComponent {
       })
       .catch(error => {
         if (error.error.detail) {
+          this.authError = error.error.detail;
           console.log('Error:', error.error.detail);
+        } else if (error.error.password) {
+          this.usernamePlaceholder = error.error.username;
+          this.passwordPlaceholder = error.error.password;
         } else {
           console.log('An error occurred:', error);
         }

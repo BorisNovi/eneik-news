@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../../services/news.service';
+import { StoriesService } from '../../../services/stories.service';
 import { singleStory } from 'src/app/interfaces/stories-interface';
 @Component({
   selector: 'app-stories-main-block',
@@ -9,7 +9,7 @@ import { singleStory } from 'src/app/interfaces/stories-interface';
 export class StoriesMainBlockComponent implements OnInit {
   storiesList: singleStory[] = []; // Создаем массив для хранения новостей
 
-  constructor(private newsService: NewsService) {}
+  constructor(private storiesService: StoriesService) {}
 
   ngOnInit(): void {
     this.loadStories();
@@ -17,7 +17,7 @@ export class StoriesMainBlockComponent implements OnInit {
 
   async loadStories() {
     try {
-      const storiesData = await this.newsService.getStories(6, 0);
+      const storiesData = await this.storiesService.getStories(6, 0);
       storiesData.subscribe((storiesData: singleStory[]) => {
         this.storiesList = storiesData;
         console.log(this.storiesList);
