@@ -15,3 +15,19 @@ export interface singleNew {
   sub_text_1: string;
   video: string;
 }
+
+export interface postNew {
+  category: string;
+  header: string;
+  subheader: string;
+  author: string;
+  main_image: string | null;
+  image_1: string | null;
+  image_2: string | null;
+  image_3: string | null;
+  image_4: string | null;
+  main_text: string;
+  sub_text_0: string;
+  sub_text_1: string;
+  video: string | null;
+}

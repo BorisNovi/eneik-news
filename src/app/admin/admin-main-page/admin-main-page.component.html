@@ -1,1 +1,15 @@
-<p>admin-main-page works!</p>
+<div class="container">
+  <h2 class="auth-header">Admin panel</h2>
+  <p class="auth-error">{{ postError }}</p>
+  <form class="auth-form" (ngSubmit)="shitpost()">
+    <label for="header">Header:</label>
+    <textarea
+      name="header"
+      id="header"
+      cols="30"
+      rows="2"
+      [(ngModel)]="header"
+      required></textarea>
+    <button type="submit">Post</button>
+  </form>
+</div>

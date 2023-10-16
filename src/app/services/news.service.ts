@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { singleNew } from '../interfaces/news-interface';
+import { Observable, firstValueFrom } from 'rxjs';
+import { singleNew, postNew } from '../interfaces/news-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +27,31 @@ export class NewsService {
       'Content-Type': 'application/json',
     });
     return this.http.get<singleNew>(url, { headers });
+  }
+
+  async postNew(
+    newContent: postNew,
+    accessToken: string | null
+  ): Promise<postNew> {
+    const url = `${this.baseUrl}/api/v1/news/`;
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    });
+
+    const body = {
+      ...newContent,
+    };
+
+    try {
+      const response = await firstValueFrom(
+        this.http.post<postNew>(url, body, { headers })
+      );
+      return response;
+    } catch (error) {
+      console.error('Error posting news:', error);
+      throw error;
+    }
   }
 }

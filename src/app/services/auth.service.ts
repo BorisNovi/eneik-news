@@ -22,7 +22,7 @@ export class AuthService {
 
     const body = {
       username,
-      password, // Если перестала раброать аутентификация, проверь, совпадает ли пароль
+      password,
     };
 
     try {

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-auth-page',
@@ -34,6 +33,7 @@ export class AdminAuthPageComponent {
       .getToken(this.username, this.password)
       .then(data => {
         this.accesstoken = data?.access;
+        sessionStorage.setItem('accessToken', String(data?.access));
         this.refreshToken = data?.refresh;
       })
       .catch(error => {
