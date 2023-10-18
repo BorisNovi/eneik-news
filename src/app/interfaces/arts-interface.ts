@@ -1,5 +1,5 @@
 export interface singleArt {
-  [key: string]: any; // Необходимо для работы динамических ключей в art.components.ts
+  [key: `image_${string}`]: string; // Необходимо для работы динамических ключей в art.components.ts
   category: string;
   date: string;
   header: string;
