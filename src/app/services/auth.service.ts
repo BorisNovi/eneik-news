@@ -7,7 +7,7 @@ import { TokenResponse, TokenVerify } from '../interfaces/auth-interface';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'https://eneik-media.com'; // https://eneik-media.com
+  private baseUrl = 'https://eneik-media.com';
 
   constructor(private http: HttpClient) {}
 

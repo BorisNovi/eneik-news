@@ -45,7 +45,7 @@
       <div class="art-subtext-1">
         <p [innerHTML]="sub_text_1"></p>
       </div>
-      <div class="art-author">
+      <div *ngIf="author" class="art-author">
         <p>Автор: {{ author }}</p>
       </div>
     </div>

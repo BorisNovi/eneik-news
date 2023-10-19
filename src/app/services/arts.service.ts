@@ -7,7 +7,7 @@ import { singleArt } from '../interfaces/arts-interface';
   providedIn: 'root',
 })
 export class ArtsService {
-  private baseUrl = 'https://eneik-media.com'; // https://eneikapi.onrender.com
+  private baseUrl = 'https://eneik-media.com';
   constructor(private http: HttpClient) {}
 
   async getArts(limit = 20, offset = 0): Promise<Observable<singleArt[]>> {

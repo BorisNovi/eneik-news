@@ -7,7 +7,7 @@ import { singleNew } from 'src/app/interfaces/news-interface';
   styleUrls: ['./square025.component.scss'],
 })
 export class Square025Component implements OnInit {
-  @Input() data: singleNew; // Объявление входного свойства для передачи данных
+  @Input() data: singleNew;
 
   category: string;
   header: string;

@@ -7,7 +7,7 @@ import { singleNew, postNew } from '../interfaces/news-interface';
   providedIn: 'root',
 })
 export class NewsService {
-  private baseUrl = 'https://eneik-media.com'; // https://eneikapi.onrender.com
+  private baseUrl = 'https://eneik-media.com';
   constructor(private http: HttpClient) {}
 
   async getNews(limit = 20, offset = 0): Promise<Observable<singleNew[]>> {
