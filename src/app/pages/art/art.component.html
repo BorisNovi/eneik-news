@@ -8,25 +8,38 @@
       *ngFor="let artsGroup of artsGroups; let i = index"
       class="last-week-container">
       <div class="squares-container">
-        <app-square1 *ngIf="artsGroup[0]" [data]="artsGroup[0]"></app-square1>
-        <div class="squares-container-inner">
-          <app-square025
-            *ngIf="artsGroup[1]"
-            [data]="artsGroup[1]"></app-square025>
-          <app-square025
-            *ngIf="artsGroup[2]"
-            [data]="artsGroup[2]"></app-square025>
-          <app-square05
-            *ngIf="artsGroup[3]"
-            [data]="artsGroup[3]"></app-square05>
+        <div class="title-art-container">
+          <a
+            *ngIf="artsGroup[0]"
+            href="arts/:id{{ artsGroup[0].id }}"
+            class="title-art-link">
+            <h2 *ngIf="artsGroup[0].header">
+              {{ artsGroup[0].header | slice: 0 : 60
+              }}{{ artsGroup[0].header.length > 60 ? '...' : '' }}
+            </h2>
+            <p>
+              {{ artsGroup[0].main_text | slice: 0 : 100
+              }}{{ artsGroup[0].main_text.length > 100 ? '...' : '' }}
+            </p>
+          </a>
         </div>
-        <app-square05 *ngIf="artsGroup[4]" [data]="artsGroup[4]"></app-square05>
+        <div class="squares-container-inner">
+          <app-square05
+            *ngIf="artsGroup[1]"
+            [data]="artsGroup[1]"></app-square05>
+        </div>
+        <app-square025
+          *ngIf="artsGroup[2]"
+          [data]="artsGroup[2]"></app-square025>
+        <app-square025
+          *ngIf="artsGroup[3]"
+          [data]="artsGroup[3]"></app-square025>
+        <app-square025
+          *ngIf="artsGroup[4]"
+          [data]="artsGroup[4]"></app-square025>
         <app-square025
           *ngIf="artsGroup[5]"
           [data]="artsGroup[5]"></app-square025>
-        <app-square025
-          *ngIf="artsGroup[6]"
-          [data]="artsGroup[6]"></app-square025>
       </div>
       <div *ngIf="resolved" class="ads-container">
         <app-thing></app-thing>

@@ -9,12 +9,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './art.component.html',
   styleUrls: ['./art.component.scss'],
 })
-
-// Это временная версия. В следующем изменении будет сделана как на макете.
 export class ArtComponent implements OnInit, OnDestroy {
   artsGroups: singleArt[][] = [];
   subscription: Subscription;
-  week: string;
   isLoading: boolean;
   currentPage: number;
   adv_chance = 20; // Шанс появления рекламы. Влияет на всю на странице.
@@ -28,7 +25,6 @@ export class ArtComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.isLoading = false;
     this.currentPage = 1;
-    this.week = '';
     this.loadarts();
   }
 
@@ -51,10 +47,10 @@ export class ArtComponent implements OnInit, OnDestroy {
         изображения приходящие по ключам image_n.
         И так i раз, запихивая каждый измененный объект в mappedData.
        */
-        for (let i = 0; i <= 5; i++) {
+        for (let i = 1; i <= 5; i++) {
           const data = newsData.map(newsItem => ({
             ...newsItem,
-            main_image: newsItem[`image_${i + 1}`],
+            main_image: newsItem[`image_${i}`],
             header: '',
             subheader: '',
           }));
