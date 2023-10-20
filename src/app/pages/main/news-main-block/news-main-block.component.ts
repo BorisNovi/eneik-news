@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../../services/news.service'; // Замените на путь к вашему NewsService
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NewsService } from '../../../services/news.service';
 import { singleNew } from '../../../interfaces/news-interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-main-block',
   templateUrl: './news-main-block.component.html',
   styleUrls: ['./news-main-block.component.scss'],
 })
-export class NewsMainBlockComponent implements OnInit {
-  newsList: singleNew[] = []; // Создаем массив для хранения новостей
+export class NewsMainBlockComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  newsList: singleNew[] = [];
 
   new_1_id = 0;
   new_1_header = ' ';
@@ -32,7 +34,7 @@ export class NewsMainBlockComponent implements OnInit {
   async loadNews() {
     try {
       const newsData = await this.newsService.getNews(4, 0);
-      newsData.subscribe((newsData: singleNew[]) => {
+      this.subscription = newsData.subscribe((newsData: singleNew[]) => {
         this.newsList = newsData;
 
         this.new_1_id = newsData[0] ? newsData[0].id : 0;
@@ -51,5 +53,9 @@ export class NewsMainBlockComponent implements OnInit {
     } catch (error) {
       console.error('Error loading news:', error);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

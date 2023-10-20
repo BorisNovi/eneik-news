@@ -1,15 +1,17 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../services/news.service';
 import { singleNew } from 'src/app/interfaces/news-interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent implements OnInit, OnDestroy {
   newsGroups: singleNew[][] = [];
+  subscription: Subscription;
   week: string;
   isLoading: boolean;
   currentPage: number;
@@ -21,7 +23,7 @@ export class NewsComponent implements OnInit {
     private newsService: NewsService
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.isLoading = false;
     this.currentPage = 1;
     this.week = '';
@@ -39,7 +41,7 @@ export class NewsComponent implements OnInit {
     try {
       this.isLoading = true;
       const newsData = await this.newsService.getNews(7, (page - 1) * 7);
-      newsData.subscribe((newsData: singleNew[]) => {
+      this.subscription = newsData.subscribe((newsData: singleNew[]) => {
         const mappedData = newsData.map(newsItem => ({
           ...newsItem,
         }));
@@ -57,10 +59,14 @@ export class NewsComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   public getDates(groupIndex: number): string {
     const group = this.newsGroups[groupIndex];
     if (!group || group.length === 0) {
-      return 'Новости закончились!'; // Если группа пуста или отсутствует
+      return ''; // Если группа пуста или отсутствует
     }
 
     const startDate = new Date(group[group.length - 1].date);

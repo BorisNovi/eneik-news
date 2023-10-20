@@ -1,7 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtsService } from 'src/app/services/arts.service';
 import { singleArt } from 'src/app/interfaces/arts-interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-art',
@@ -10,8 +11,9 @@ import { singleArt } from 'src/app/interfaces/arts-interface';
 })
 
 // Это временная версия. В следующем изменении будет сделана как на макете.
-export class ArtComponent implements OnInit {
+export class ArtComponent implements OnInit, OnDestroy {
   artsGroups: singleArt[][] = [];
+  subscription: Subscription;
   week: string;
   isLoading: boolean;
   currentPage: number;
@@ -23,7 +25,7 @@ export class ArtComponent implements OnInit {
     private artsService: ArtsService
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.isLoading = false;
     this.currentPage = 1;
     this.week = '';
@@ -41,7 +43,7 @@ export class ArtComponent implements OnInit {
     try {
       this.isLoading = true;
       const newsData = await this.artsService.getArts(1, (page - 1) * 1);
-      newsData.subscribe((newsData: singleArt[]) => {
+      this.subscription = newsData.subscribe((newsData: singleArt[]) => {
         const mappedData: singleArt[] = [...newsData];
         /*
         Эта совершенно уасающая конструкция берет один объект арта,
@@ -71,6 +73,10 @@ export class ArtComponent implements OnInit {
       this.isLoading = false;
       console.error('Error loading arts:', error);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   private scrollTimeout: number;

@@ -1,15 +1,17 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StoriesService } from '../../services/stories.service';
 import { singleStory } from 'src/app/interfaces/stories-interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stories',
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.scss'],
 })
-export class StoriesComponent implements OnInit {
+export class StoriesComponent implements OnInit, OnDestroy {
   storiesGroups: singleStory[][] = [];
+  subscription: Subscription;
   week: string;
   isLoading: boolean;
   currentPage: number;
@@ -21,7 +23,7 @@ export class StoriesComponent implements OnInit {
     private storiesService: StoriesService
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.isLoading = false;
     this.currentPage = 1;
     this.week = '';
@@ -39,7 +41,7 @@ export class StoriesComponent implements OnInit {
     try {
       this.isLoading = true;
       const newsData = await this.storiesService.getStories(7, (page - 1) * 7);
-      newsData.subscribe((newsData: singleStory[]) => {
+      this.subscription = newsData.subscribe((newsData: singleStory[]) => {
         const mappedData = newsData.map(newsItem => ({
           ...newsItem,
         }));
@@ -55,6 +57,10 @@ export class StoriesComponent implements OnInit {
       this.isLoading = false;
       console.error('Error loading stories:', error);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   private scrollTimeout: number;

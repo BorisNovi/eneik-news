@@ -1,30 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ArtsService } from 'src/app/services/arts.service';
 import { singleArt } from 'src/app/interfaces/arts-interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-art-main-component',
   templateUrl: './art-main-component.component.html',
   styleUrls: ['./art-main-component.component.scss'],
 })
-export class ArtMainComponentComponent implements OnInit {
-  artsList: singleArt[] = []; // Создаем массив для хранения новостей
+export class ArtMainComponentComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  artsList: singleArt[] = [];
 
   constructor(private artsService: ArtsService) {}
 
   ngOnInit(): void {
-    this.loadarts();
+    this.loadArts();
   }
 
-  async loadarts() {
+  async loadArts() {
     try {
       const artsData = await this.artsService.getArts(7, 0);
-      artsData.subscribe((artsData: singleArt[]) => {
+      this.subscription = artsData.subscribe((artsData: singleArt[]) => {
         this.artsList = artsData;
         console.log(this.artsList);
       });
     } catch (error) {
       console.error('Error loading arts:', error);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
