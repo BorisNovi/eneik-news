@@ -41,7 +41,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   }
 
   async loadSingleNew(): Promise<void> {
-    const newsId = this.route.snapshot.params['id'].slice(3);
+    const newsId = this.route.snapshot.params['id'];
 
     try {
       const singleNewData = await this.newsService.getNewsById(newsId);

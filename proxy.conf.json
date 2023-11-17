@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://www.eneik-media.com/",
+    "target": "http://localhost:8000/",
     "secure": false
   }
 }

@@ -3,7 +3,7 @@
     <h1 class="main-header">IT ЕЖЕНЕДЕЛЬНИК</h1>
 
     <div class="title-new-container">
-      <a href="news/:id{{ new_1_id }}" class="title-new-link">
+      <a href="news/{{ new_1_id }}" class="title-new-link">
         <h2 *ngIf="new_1_header">
           {{ new_1_header | slice: 0 : 60
           }}{{ new_1_header.length > 60 ? '...' : '' }}
@@ -18,7 +18,7 @@
   <div class="additional-container">
     <div class="additional-news">
       <div class="new-1">
-        <a href="news/:id{{ new_2_id }}" class="new-1-link">
+        <a href="news/{{ new_2_id }}" class="new-1-link">
           <h4 *ngIf="new_2_header">
             {{ new_2_header | slice: 0 : 70
             }}{{ new_1_header.length > 70 ? '...' : '' }}
@@ -26,7 +26,7 @@
         </a>
       </div>
       <div class="new-2">
-        <a href="news/:id{{ new_3_id }}" class="new-2-link">
+        <a href="news/{{ new_3_id }}" class="new-2-link">
           <h4 *ngIf="new_3_header">
             {{ new_3_header | slice: 0 : 70
             }}{{ new_3_header.length > 70 ? '...' : '' }}
@@ -34,7 +34,7 @@
         </a>
       </div>
       <div class="new-3">
-        <a href="news/:id{{ new_4_id }}" class="new-3-link">
+        <a href="news/{{ new_4_id }}" class="new-3-link">
           <h4 *ngIf="new_4_header">
             {{ new_4_header | slice: 0 : 70
             }}{{ new_4_header.length > 70 ? '...' : '' }}

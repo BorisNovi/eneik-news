@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { singleStory } from '../models/stories-interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StoriesService {
-  private baseUrl = 'https://eneik-media.com';
+  private baseUrl = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 

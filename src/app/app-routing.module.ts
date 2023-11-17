@@ -9,9 +9,6 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ArtComponent } from './art/pages/art/art.component';
 import { TellComponent } from './tell/tell/tell.component';
 import { ArtsDetailComponent } from './art/pages/arts-detail/arts-detail.component';
-import { AdminMainPageComponent } from './admin/pages/admin-main-page/admin-main-page.component';
-import { AdminAuthPageComponent } from './admin/pages/admin-auth-page/admin-auth-page.component';
-import { adminAuthGuard } from './admin/guards/admin-auth.guard';
 
 const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -21,10 +18,8 @@ const routes: Routes = [
   { path: 'tell', component: TellComponent },
   {
     path: 'admin',
-    component: AdminMainPageComponent,
-    canActivate: [adminAuthGuard],
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
   },
-  { path: 'auth', component: AdminAuthPageComponent },
   { path: 'news/:id', component: NewsDetailComponent },
   { path: 'stories/:id', component: StoriesDetailComponent },
   { path: 'arts/:id', component: ArtsDetailComponent },

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { singleArt } from '../models/arts-interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArtsService {
-  private baseUrl = 'https://eneik-media.com';
+  private baseUrl = environment.API_URL;
   constructor(private http: HttpClient) {}
 
   async getArts(limit = 20, offset = 0): Promise<Observable<singleArt[]>> {
