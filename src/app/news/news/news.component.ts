@@ -1,0 +1,118 @@
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NewsService } from '../../core/services/news.service';
+import { singleNew } from '../../core/models/news-interface';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-news',
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.scss'],
+})
+export class NewsComponent implements OnInit, OnDestroy {
+  newsGroups: singleNew[][] = [];
+  subscription: Subscription;
+  week: string;
+  isLoading: boolean;
+  currentPage: number;
+  adv_chance = 20; // Шанс появления рекламы. Влияет на всю на странице.
+  resolved = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private newsService: NewsService
+  ) {}
+
+  ngOnInit(): void {
+    this.isLoading = false;
+    this.currentPage = 1;
+    this.week = '';
+    this.loadNews();
+  }
+
+  resolver(chance = 0): void {
+    const random_100 = +(Math.random() * 100).toFixed();
+    this.resolved = random_100 <= chance ? true : false;
+  }
+
+  async loadNews(page = 1): Promise<void> {
+    this.resolver();
+
+    try {
+      this.isLoading = true;
+      const newsData = await this.newsService.getNews(7, (page - 1) * 7);
+      this.subscription = newsData.subscribe((newsData: singleNew[]) => {
+        const mappedData = newsData.map(newsItem => ({
+          ...newsItem,
+        }));
+        if (page === 1) {
+          this.newsGroups = [mappedData]; // Создаем первую группу новостей
+        } else {
+          this.newsGroups.push(mappedData); // Добавляем новую группу к массиву
+        }
+        this.isLoading = false;
+        this.currentPage = page + 1;
+      });
+    } catch (error) {
+      this.isLoading = false;
+      console.error('Error loading news:', error);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+  public getDates(groupIndex: number): string {
+    const group = this.newsGroups[groupIndex];
+    if (!group || group.length === 0) {
+      return ''; // Если группа пуста или отсутствует
+    }
+
+    const startDate = new Date(group[group.length - 1].date);
+    const endDate = new Date(group[0].date);
+
+    const startMonth = startDate.toLocaleString('default', { month: 'short' });
+    const endMonth = endDate.toLocaleString('default', { month: 'short' });
+    const startDay = startDate.getDate();
+    const endDay = endDate.getDate();
+
+    return `${startDay} ${startMonth} - ${endDay} ${endMonth}`;
+  }
+
+  private scrollTimeout: number;
+  private prevScrollPosition = 0; // Переменная для хранения предыдущей позиции скролла
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPercentage = (scrollPosition / documentHeight) * 100;
+
+    if (!this.isLoading && scrollPercentage >= 80) {
+      if (this.scrollTimeout) {
+        clearTimeout(this.scrollTimeout);
+      }
+
+      this.scrollTimeout = window.setTimeout(() => {
+        const currentScrollPosition = window.scrollY;
+
+        // Проверяем, что скролл двигается вниз
+        if (currentScrollPosition > this.prevScrollPosition) {
+          const currentGroupIndex = this.newsGroups.length - 1; // Индекс текущей группы новостей
+          const currentGroup = this.newsGroups[currentGroupIndex];
+
+          if (!currentGroup || currentGroup.length === 0) {
+            return; // Ничего не делаем, если группа пуста или отсутствует
+          }
+
+          // Загружаем следующую группу новостей
+          this.loadNews(this.currentPage);
+        }
+
+        // Обновляем предыдущую позицию скролла
+        this.prevScrollPosition = currentScrollPosition;
+      }, 500);
+    }
+  }
+}
