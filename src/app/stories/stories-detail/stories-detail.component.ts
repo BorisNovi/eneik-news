@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StoriesService } from '../../core/services/stories.service';
-import { singleStory } from '../../core/models/stories-interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import { StoriesService } from '../../core/services/stories.service';
+import { singleStory } from '../../core/models/stories-interface';
 
 @Component({
   selector: 'app-stories-detail',
@@ -41,7 +41,7 @@ export class StoriesDetailComponent implements OnInit, OnDestroy {
   }
 
   async loadSingleStory(): Promise<void> {
-    const storiesId = this.route.snapshot.params['id'].slice(3);
+    const storiesId = this.route.snapshot.params.id.slice(3);
 
     try {
       const singleStoryData =

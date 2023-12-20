@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
-import { singleNew, postNew } from '../models/news-interface';
 import { environment } from 'src/environments/environment';
+import { singleNew, postNew } from '../models/news-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class NewsService {
   constructor(private http: HttpClient) {}
 
   async getNews(limit = 20, offset = 0): Promise<Observable<singleNew[]>> {
-    const url = `${this.baseUrl}api/v1/news/?count=${limit}&start=${offset}`;
+    const url = `${this.baseUrl}/api/v1/news/?count=${limit}&start=${offset}`;
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

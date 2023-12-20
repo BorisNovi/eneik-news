@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ArtsService } from '../../../core/services/arts.service';
 import { singleArt } from '../../../core/models/arts-interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-art-main-component',

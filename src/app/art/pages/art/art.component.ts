@@ -1,8 +1,8 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ArtsService } from '../../../core/services/arts.service';
 import { singleArt } from '../../../core/models/arts-interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-art',
@@ -30,7 +30,7 @@ export class ArtComponent implements OnInit, OnDestroy {
 
   resolver(chance = 0): void {
     const random_100 = +(Math.random() * 100).toFixed();
-    this.resolved = random_100 <= chance ? true : false;
+    this.resolved = random_100 <= chance;
   }
 
   async loadarts(page = 1): Promise<void> {

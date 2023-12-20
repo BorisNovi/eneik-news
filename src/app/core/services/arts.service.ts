@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { singleArt } from '../models/arts-interface';
 import { environment } from 'src/environments/environment';
+import { singleArt } from '../models/arts-interface';
 
 @Injectable({
   providedIn: 'root',

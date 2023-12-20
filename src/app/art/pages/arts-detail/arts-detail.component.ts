@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArtsService } from '../../../core/services/arts.service';
-import { singleArt } from '../../../core/models/arts-interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import { ArtsService } from '../../../core/services/arts.service';
+import { singleArt } from '../../../core/models/arts-interface';
 
 @Component({
   selector: 'app-arts-detail',
@@ -38,7 +38,7 @@ export class ArtsDetailComponent implements OnInit, OnDestroy {
   }
 
   async loadSingleStory(): Promise<void> {
-    const artsId = this.route.snapshot.params['id'].slice(3);
+    const artsId = this.route.snapshot.params.id.slice(3);
 
     try {
       const singleStoryData = await this.artsService.getArtsById(artsId);

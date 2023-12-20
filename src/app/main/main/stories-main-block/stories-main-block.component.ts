@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { StoriesService } from '../../../core/services/stories.service';
 import { singleStory } from '../../../core/models/stories-interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stories-main-block',

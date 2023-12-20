@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { NewsService } from '../../../core/services/news.service';
 import { singleNew } from '../../../core/models/news-interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-main-block',

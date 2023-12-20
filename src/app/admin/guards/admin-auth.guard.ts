@@ -15,11 +15,9 @@ export const adminAuthGuard: CanActivateFn = (
   const router = new Router();
   if (AdminAuthPageComponent.isAuthenticatedUser()) {
     return true;
-  } else {
-    if (state.url.startsWith('/admin')) {
-      return router.parseUrl('/');
-    } else {
-      return false;
-    }
   }
+  if (state.url.startsWith('/admin')) {
+    return router.parseUrl('/');
+  }
+  return false;
 };

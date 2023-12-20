@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NewsService } from '../../core/services/news.service';
-import { singleNew } from '../../core/models/news-interface';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
+import { NewsService } from '../../core/services/news.service';
+import { singleNew } from '../../core/models/news-interface';
 
 @Component({
   selector: 'app-news-detail',
@@ -41,7 +41,7 @@ export class NewsDetailComponent implements OnInit, OnDestroy {
   }
 
   async loadSingleNew(): Promise<void> {
-    const newsId = this.route.snapshot.params['id'];
+    const newsId = this.route.snapshot.params.id;
 
     try {
       const singleNewData = await this.newsService.getNewsById(newsId);

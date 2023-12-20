@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { singleThing } from '../models/things-interface';
 import { environment } from 'src/environments/environment';
+import { singleThing } from '../models/things-interface';
 
 @Injectable({
   providedIn: 'root',

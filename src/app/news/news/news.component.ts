@@ -1,8 +1,8 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { NewsService } from '../../core/services/news.service';
 import { singleNew } from '../../core/models/news-interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news',
@@ -32,7 +32,7 @@ export class NewsComponent implements OnInit, OnDestroy {
 
   resolver(chance = 0): void {
     const random_100 = +(Math.random() * 100).toFixed();
-    this.resolved = random_100 <= chance ? true : false;
+    this.resolved = random_100 <= chance;
   }
 
   async loadNews(page = 1): Promise<void> {

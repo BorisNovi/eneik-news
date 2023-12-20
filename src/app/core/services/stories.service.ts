@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { singleStory } from '../models/stories-interface';
 import { environment } from 'src/environments/environment';
+import { singleStory } from '../models/stories-interface';
 
 @Injectable({
   providedIn: 'root',

@@ -1,8 +1,8 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { StoriesService } from '../../core/services/stories.service';
 import { singleStory } from '../../core/models/stories-interface';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-stories',
@@ -31,8 +31,8 @@ export class StoriesComponent implements OnInit, OnDestroy {
   }
 
   resolver(chance = 0): void {
-    const random_100 = +(Math.random() * 100).toFixed();
-    this.resolved = random_100 <= chance ? true : false;
+    const random100 = +(Math.random() * 100).toFixed();
+    this.resolved = random100 <= chance;
   }
 
   async loadStories(page = 1): Promise<void> {
@@ -41,8 +41,8 @@ export class StoriesComponent implements OnInit, OnDestroy {
     try {
       this.isLoading = true;
       const newsData = await this.storiesService.getStories(7, (page - 1) * 7);
-      this.subscription = newsData.subscribe((newsData: singleStory[]) => {
-        const mappedData = newsData.map(newsItem => ({
+      this.subscription = newsData.subscribe((data: singleStory[]) => {
+        const mappedData = data.map(newsItem => ({
           ...newsItem,
         }));
         if (page === 1) {
